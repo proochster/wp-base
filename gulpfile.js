@@ -45,22 +45,13 @@ const
         'srcScss': 'src/resources/scss/**/*.scss',
         'componentsScss': 'src/components/**/*.scss',
         'jsPlugins': 'src/resources/js/plugins/*.js',
-        'jsComponents': 'src/components/**/*.js',
-
-        // 'jsVendor' : 'src/resources/js/vendor/*.js',
-        // 'images': 'src/resources/img/**',
-        // 'fonts' : 'src/resources/fonts/**'
+        'jsComponents': 'src/components/**/*.js'
     },
 
     output = {
-        'wpStylesheets': `wp/wp-content/themes/${themeName}`,
+        'wpStylesheets': `wp-content/themes/${themeName}`,
         'srcStylesheets': 'src/resources/scss',
-        'wpJavascript': `wp/wp-content/themes/${themeName}/js`,
-
-        // 'images': `wp/wp-content/themes/${themeName}/img`
-        // 'fonts': `wp/wp-content/themes/${themeName}/fonts`,
-        // 'jsPlugins': 'dist/js/plugins',
-        // 'jsVendor': 'dist/js/vendor',
+        'wpJavascript': `wp-content/themes/${themeName}/js`
     };
 
 
@@ -101,16 +92,9 @@ gulp.task('serve', ['theme-css', 'build-js'], function() {
         proxy: localhost
     });
 
-    // gulp.watch([input.scss, 'src/components/**/*.scss'], ['build-bundle']);
-    // gulp.watch([input.scss, 'src/resources/scss/**/*.scss'], ['build-bundle']);
     gulp.watch([input.srcScss, input.componentsScss], ['theme-css']).on('change', browserSync.reload);
     gulp.watch(input.wpPhp).on('change', browserSync.reload);
     gulp.watch([input.jsComponents], ['build-js']).on('change', browserSync.reload);
-    // gulp.watch([input.jsPlugins], ['jshint', 'build-plugins']);
-    // gulp.watch([output.jsPlugins, output.javascript], browserSync.reload);
-    // gulp.watch([input.images], ['images']);
-    // gulp.watch("./wp2018/wp/wp-content/themes/wp2018/*.php").on('change', browserSync.reload);
-    // gulp.watch("src/components/**/*.php").on('change', browserSync.reload);
 });
 
 /*------------------------------------*\
@@ -134,7 +118,6 @@ gulp.task('build-js', function() {
 });
 
 function handleError(err) {
-  // console.log(err.toString());
   this.emit('end');
 }
 
