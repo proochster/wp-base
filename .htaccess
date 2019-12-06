@@ -13,3 +13,45 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+
+# # Lock access to the sensitive files to set IP addresses
+# # If possible add these settings to the server config
+# <Files wp-login.php>
+#         order deny,allow
+#         deny from all
+#         # Add local IP
+#         allow from 0.0.0.0
+# </Files>
+# <Files xmlrpc.php>
+#         order deny,allow
+#         deny from all
+#         # Add local IP
+#         allow from 0.0.0.0
+# </Files>
+# <Files wp-cron.php>
+#         order deny,allow
+#         deny from all
+#         # Add local IP
+#         allow from 0.0.0.0
+# </Files>
+# <Files wp-admin/admin-ajax.php>
+#         order deny,allow
+#         deny from all
+#         # Add local IP
+#         allow from 0.0.0.0
+# </Files>
+
+# # Set file caching
+# # If possible add these settings to the server config
+# <IfModule mod_headers.c>
+#     # WEEK
+#     <FilesMatch "\.(jpg|jpeg|png|gif|swf|mp4)$">
+#         Header set Cache-Control "max-age=604800, public"
+#     </FilesMatch>
+
+#     # 1 MONTHS
+#     <FilesMatch "\.(js|css|swf)$">
+#       Header set Cache-Control "max-age=2419200, public"
+#     </FilesMatch>
+# </IfModule>
