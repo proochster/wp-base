@@ -4,7 +4,7 @@ Theme: *TWG*
 
 Plugins: *Contact Form 7, Classic Editor*
 
-Tools: *Node, Npm, Gulp*
+Tools: *Node, Npm, Gulp, SCSS, Bulma*
 
 ## Localhost installation
 
@@ -18,16 +18,19 @@ Tools: *Node, Npm, Gulp*
     - etc/hosts
     - extras/httpd-vhosts.conf
 
-## Deployment
-
-- Check and adjust .htaccess file with IP addresses and file caching options
-
-## Development
+## Theme setup
 
 - Install Node packages `npm i`
 - Configure gulpfile.js
 - Configure package.json
+- Update variables in `src/resources/scss/variables/_bulma.scss` file
+- Update `/src/resources/scss/theme.css` file with the new theme details
 
-- Update files in the `wp-base/src/resources/scss/variables/` folder
+## Development
 
 - Use `gulp` command to run and watch .scss and .js assets
+- Add more Bulma styles if required by uncommenting resources in this file `src/resources/scss/bundle.scss`
+
+## Deployment
+
+- Check and adjust .htaccess file with IP addresses and file caching options
