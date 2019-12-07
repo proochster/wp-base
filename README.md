@@ -27,3 +27,7 @@ Tools: *Node, Npm, Gulp*
 - Install Node packages `npm i`
 - Configure gulpfile.js
 - Configure package.json
+
+- Update files in the `wp-base/src/resources/scss/variables/` folder
+
+- Use `gulp` command to run and watch .scss and .js assets
