@@ -18,3 +18,7 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+# ignore compiled styles
+# add a path below to the style when setting up a new theme `wp-content/themes/{new-theme-name}/style.css`
+wp-content/themes/wp-base/style.css
