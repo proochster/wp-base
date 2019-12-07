@@ -24,6 +24,5 @@ node_modules/
 wp-content/themes/wp-base/style.css
 
 # exclude compiled Javascript files
-# add paths below to the files when setting up a new theme `wp-content/themes/{new-theme-name}/app.js` and `wp-content/themes/{new-theme-name}/app-min.js`
-wp-content/themes/wp-base/js/app.js
-wp-content/themes/wp-base/js/app-min.js
+# add a path below to the js folder when setting up a new theme `wp-content/themes/{new-theme-name}/js/`
+wp-content/themes/wp-base/js/
