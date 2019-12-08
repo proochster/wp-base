@@ -59,40 +59,52 @@ const
     #GULP TASK THAT RUNS AT THE OUTSET
 \*------------------------------------*/
 
-gulp.task('default', ['theme-css', 'build-js', 'serve'])
+gulp.task('default', ['theme-css', 'inline-css', 'build-js', 'serve'])
 
 /*------------------------------------*\
     #BUILD CSS
 \*------------------------------------*/
 
-gulp.task('theme-css', function() {
-    const themeStream = gulp.src('src/resources/scss/theme.css'),
-        bundleStream = gulp.src('src/resources/scss/bundle.scss')
-                .pipe(sass({
-                    outputStyle: 'compressed'
-                }).on('error', notify.onError(function(error) {
-                    return error.message;
-                })))
-                .pipe(autoprefixer(browsersToPrefix))
-                .pipe(reload({stream: true}));
-
-        return merge(bundleStream, themeStream)
-          .pipe(concat('style.css'))
-          .pipe(gulp.dest(output.wpStylesheets))
+gulp.task('inline-css', function() {
+    gulp.src('src/resources/scss/bundle.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(concat('inline.css'))
+    .pipe(gulp.dest(output.wpStylesheets));
 });
 
+gulp.task('theme-css', function() {
+    gulp.src('src/resources/scss/theme.css')
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest(output.wpStylesheets));
+});
+
+// gulp.task('theme-css', function() {
+//     const themeStream = gulp.src('src/resources/scss/theme.css'),
+//         bundleStream = gulp.src('src/resources/scss/bundle.scss')
+//                 .pipe(sass({
+//                     outputStyle: 'compressed'
+//                 }).on('error', notify.onError(function(error) {
+//                     return error.message;
+//                 })))
+//                 .pipe(autoprefixer(browsersToPrefix))
+//                 .pipe(reload({stream: true}));
+
+//         return merge(bundleStream, themeStream)
+//           .pipe(concat('style.css'))
+//           .pipe(gulp.dest(output.wpStylesheets))
+// });
 
 /*------------------------------------*\
     #GULP SERVE - WATCHES FIELS AND SETS UP BROWSERSYNC
 \*------------------------------------*/
 
-gulp.task('serve', ['theme-css', 'build-js'], function() {
+gulp.task('serve', ['theme-css', 'inline-css', 'build-js'], function() {
 
     browserSync.init({
         proxy: localhost
     });
 
-    gulp.watch([input.srcScss, input.componentsScss], ['theme-css']).on('change', browserSync.reload);
+    gulp.watch([input.srcScss, input.componentsScss], ['theme-css', 'inline-css']).on('change', browserSync.reload);
     gulp.watch(input.wpPhp).on('change', browserSync.reload);
     gulp.watch([input.jsComponents], ['build-js']).on('change', browserSync.reload);
 });
@@ -121,8 +133,3 @@ function handleError(err) {
   this.emit('end');
 }
 
-gulp.task('build-inline-css', function() {
-    gulp.src('src/resources/scss/inline.scss')
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest('./src/resources/css'));
-});
