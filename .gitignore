@@ -25,6 +25,7 @@ wp-config.php
 # ignore compiled styles
 # add a path below to the style when setting up a new theme `wp-content/themes/{new-theme-name}/style.css`
 wp-content/themes/wp-base/style.css
+wp-content/themes/wp-base/inline.css
 
 # exclude compiled Javascript files
 # add a path below to the js folder when setting up a new theme `wp-content/themes/{new-theme-name}/js/`
