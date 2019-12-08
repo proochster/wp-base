@@ -1,5 +1,7 @@
 # WordPress Development Base 
 
+WordPress: *v5.3*
+
 Theme: *TWG*
 
 Plugins: *Contact Form 7, Classic Editor*
@@ -10,7 +12,7 @@ Tools: *Node, Npm, Gulp, SCSS, Bulma*
 
 - Clone this repo
 - Create a local DB for the project
-- Update the wp-config file
+- Rename wp-config-sample.php to wp-config.php and update it
     - Change DB settings
     - Crete new salts
 - Navigate to the localhost address and install WordPress by following the steps
