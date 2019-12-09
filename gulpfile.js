@@ -23,18 +23,6 @@ const
     browsersToPrefix = ['> 5%', 'ie >= 7'],
     reload = browserSync.reload,
     minify = require('gulp-minify'),
-    // fs = require('fs');
-    // gutil = require('gulp-util'),
-    // jshint = require('gulp-jshint'),
-    // clean = require('gulp-clean'),
-    // sourcemaps = require('gulp-sourcemaps'),
-    // imagemin = require('gulp-imagemin'),
-    // raster = require('gulp-raster'),
-    // pngquant = require('imagemin-pngquant'),
-    // minifycss = require('gulp-minify-css'),
-    // inlineCss = require('gulp-inline-css'),
-    // newer = require('gulp-newer'),
-    // removeHtmlComments = require('gulp-remove-html-comments'),
 
 /*------------------------------------*\
     #FILE LOCATIONS
@@ -45,7 +33,8 @@ const
         'srcScss': 'src/resources/scss/**/*.scss',
         'componentsScss': 'src/components/**/*.scss',
         'jsPlugins': 'src/resources/js/plugins/*.js',
-        'jsComponents': 'src/components/**/*.js'
+        'jsComponents': 'src/components/**/*.js',
+        'input.wpPhp': 'wp-content/themes/wb-base/**/*.php'
     },
 
     output = {
@@ -101,11 +90,12 @@ gulp.task('theme-css', function() {
 gulp.task('serve', ['theme-css', 'inline-css', 'build-js'], function() {
 
     browserSync.init({
-        proxy: localhost
+        proxy: localhost,
+        notify: false
     });
 
     gulp.watch([input.srcScss, input.componentsScss], ['theme-css', 'inline-css']).on('change', browserSync.reload);
-    gulp.watch(input.wpPhp).on('change', browserSync.reload);
+    gulp.watch(['*.html', '*.php']).on('change', browserSync.reload);
     gulp.watch([input.jsComponents], ['build-js']).on('change', browserSync.reload);
 });
 
@@ -114,19 +104,19 @@ gulp.task('serve', ['theme-css', 'inline-css', 'build-js'], function() {
 \*------------------------------------*/
 
 gulp.task('build-js', function() {
-    return gulp.src(input.jsComponents)
-        .pipe(concat('app.js'))
-        .pipe(babel({
-            // presets: ['es2015'],
-            compact: true
-        }))
-        .on("error", notify.onError(function (error) {
-            return error.message;
-        }))
-        .on("error", handleError)
-        .pipe(wrapJS('(function ($, window, document, undefined) {%= body % }(jQuery, window, document));'))
-        .pipe(minify())
-        .pipe(gulp.dest(output.wpJavascript));
+    gulp.src([input.jsComponents])
+    .pipe(wrapJS('(function (window, document, undefined) {%= body % }(window, document));'))
+    .pipe(babel({
+        // presets: ['es2015'],
+        compact: true
+    }))
+    .on("error", notify.onError(function (error) {
+        return error.message;
+    }))
+    .on("error", handleError)
+    .pipe(concat('app.js'))
+    .pipe(minify())
+    .pipe(gulp.dest(output.wpJavascript));
 });
 
 function handleError(err) {
