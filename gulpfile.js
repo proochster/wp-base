@@ -126,6 +126,7 @@ gulp.task('build-js', function() {
         .on("error", handleError)
         .pipe(wrapJS('(function ($, window, document, undefined) {%= body % }(jQuery, window, document));'))
         .pipe(minify())
+        .pipe(concat('app.min.js'))
         .pipe(gulp.dest(output.wpJavascript));
 });
 
