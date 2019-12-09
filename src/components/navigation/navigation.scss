@@ -3,11 +3,11 @@
     opacity: 0;
     transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0ms, width 0.5s;
     height: 100%;
-    text-align: center;
+    // text-align: center;
     position: fixed;
     display: block;
     z-index: 0;
-    overflow-x: hidden;
+    overflow-y: scroll;
         
     &.is-active{
         opacity: 1;
@@ -28,6 +28,7 @@
         position: static;
         z-index: 1;
         display: flex;
+        overflow-y: visible;
         
         &.is-active{
             width: auto;
@@ -35,6 +36,24 @@
     }
 }
 
+/**
+* Extend Bulma nav classes. This is more efficient than restructuring custom menus.
+*/
 
+.menu-item-has-children{
+    @extend .has-dropdown;
+    @extend .is-hoverable;
+    @extend .navbar-item;
+}
 
-// opacity 500ms cubic-bezier(0.25, 0.1, 0.25, 1) 0ms, z-index 0ms, transform 0ms, width 150ms
+.menu-item-has-children > a{
+    @extend .navbar-link; 
+}
+
+.sub-menu{
+    @extend .navbar-dropdown;
+}
+
+.menu-item > a{
+    @extend .navbar-item;
+}
