@@ -14,7 +14,7 @@
     "./node_modules/bulma/sass/utilities/functions.sass",
     "./node_modules/bulma/sass/utilities/derived-variables.sass",
     // "./node_modules/bulma/sass/utilities/animations.sass",
-    "./node_modules/bulma/sass/utilities/mixins.sass",
+    "./node_modules/bulma/sass/utilities/mixins.sass", // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
     "./node_modules/bulma/sass/utilities/controls.sass",
 
 // "./node_modules/bulma/sass/base/_all",
@@ -54,7 +54,7 @@
     // "./node_modules/bulma/sass/components/menu.sass",
     // "./node_modules/bulma/sass/components/message.sass",
     // "./node_modules/bulma/sass/components/modal.sass",
-    "./node_modules/bulma/sass/components/navbar.sass";
+    "./node_modules/bulma/sass/components/navbar.sass",
     // "./node_modules/bulma/sass/components/pagination.sass",
     // "./node_modules/bulma/sass/components/panel.sass",
     // "./node_modules/bulma/sass/components/tabs.sass",
@@ -65,7 +65,7 @@
 
 // "./node_modules/bulma/sass/layout/_all",
     // "./node_modules/bulma/sass/layout/hero.sass",
-    // "./node_modules/bulma/sass/layout/section.sass",
+    "./node_modules/bulma/sass/layout/section.sass",
     // "./node_modules/bulma/sass/layout/footer.sass";
 
 // Custom styles
@@ -98,4 +98,4 @@
     #COMPONENTS
 \*------------------------------------*/
 
-// "../../components/components";
+"../../components/components";
