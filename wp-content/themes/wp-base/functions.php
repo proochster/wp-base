@@ -106,18 +106,18 @@
         add_theme_support(
             'custom-header',
             array(
-                'default-image'          => '',
-                'width'                  => 0,
-                'height'                 => 0,
-                'flex-height'            => false,
-                'flex-width'             => false,
-                'uploads'                => true,
-                'random-default'         => false,
-                'header-text'            => true,
-                'default-text-color'     => '',
-                'wp-head-callback'       => '',
-                'admin-head-callback'    => '',
-                'admin-preview-callback' => '',
+                // 'default-image'          => '',
+                // 'width'                  => 0,
+                // 'height'                 => 0,
+                // 'flex-height'            => false,
+                // 'flex-width'             => false,
+                // 'uploads'                => true,
+                // 'random-default'         => false,
+                // 'header-text'            => true,
+                'default-text-color'     => '#CCCCCC',
+                // 'wp-head-callback'       => '',
+                // 'admin-head-callback'    => '',
+                // 'admin-preview-callback' => '',
             )
         );
 
@@ -268,10 +268,10 @@
         // App.js
         wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), '', true );
 
-    //     // Theme stylesheet.
-    //     wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
+        // // Theme stylesheet.
+        // wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
         // Add Wordpress dashicons to the theme
-        wp_enqueue_style( 'dashicons' );
+        // wp_enqueue_style( 'dashicons' );
      }
 
 
@@ -286,15 +286,15 @@
         return "$url' async='async";
     }, 11, 1 );
 
-
-    /* Scripts*/
-    if (!is_admin()) add_action("wp_enqueue_scripts", "tidy_scripts", 11);
+    /* Scripts*/  
     function tidy_scripts() {
         wp_dequeue_style( 'wp-block-library' );
         wp_deregister_script('wp-embed');
         wp_deregister_script('jquery');
         wp_enqueue_script('jquery');
     }
+    // Load the script when in Theme Customisation 
+    if (!is_customize_preview()) add_action("wp_enqueue_scripts", "tidy_scripts", 11);
 
     // https://www.isitwp.com/remove-code-wordpress-header/
     remove_action('wp_head', 'rsd_link');
