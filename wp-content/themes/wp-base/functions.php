@@ -165,6 +165,7 @@
 
     /**
      * Register theme menus
+     * @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
      */
     add_action( 'after_setup_theme', 'register_theme_menus' );
     
@@ -175,18 +176,7 @@
         ) );
     }
 
-    /**
-     * Append navbar classes to the anchors. Only apply to selected menus
-     */
-    function add_menu_item_class($ulclass, $args) {
-        if($args->theme_location == 'header_menu_left' || $args->theme_location == 'header_menu_right'){
-            return preg_replace('/<a /', '<a class="navbar-item"', $ulclass);
-        }
-    }
-    add_filter('wp_nav_menu','add_menu_item_class', 1, 2);
-
-
-/**
+ /**
  * ------------------
  * CUSTOM POST TYPES
  */

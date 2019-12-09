@@ -34,7 +34,6 @@
         </a>
     </div>
 <?php endif;*/ ?>
-
 <nav class="navbar has-shadow is-spaced" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
@@ -45,16 +44,6 @@
                 } else {
                     bloginfo('title');
                 }
-
-                // print_r(get_theme_mod( 'custom_logo' ));
-
-                // $custom_logo_id = get_theme_mod( 'custom_logo' );
-                // $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-                // if ( has_custom_logo() ) {
-                //         echo '<img src="' . esc_url( $logo&#91;0&#93; ) . '" alt="' . get_bloginfo( 'name' ) . '">';
-                // } else {
-                //         echo '<h1>'. get_bloginfo( 'name' ) .'</h1>';
-                // }
                 ?>
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
@@ -66,41 +55,22 @@
 
         <div class="navbar-menu">
             <?php
-                $rightMenuParameters = array(
+                wp_nav_menu( array(
                     'theme_location' => 'header_menu_left',
-                    'container'       => 'div',
-                    'container_class' => 'navbar-start',
-                    'echo' => '',
-                    'items_wrap' => '%3$s',
-                    'depth' => 0
-                );
-                echo strip_tags( wp_nav_menu( $rightMenuParameters ), '<div><a>' );
+                    'fallback_cb' => 'false',
+                    'container'       => '',
+                    'items_wrap'      => '<ul id="%1$s" class="%2$s navbar-start">%3$s</ul>',
+                ));
             ?>
             <?php
-                $leftMenuParameters = array(
+                wp_nav_menu( array(
                     'theme_location' => 'header_menu_right',
-                    'container'       => 'div',
-                    'container_class' => 'navbar-end',
-                    'echo' => '',
-                    'items_wrap' => '%3$s',
-                    'depth' => 0
-                );
-                echo strip_tags( wp_nav_menu( $leftMenuParameters ), '<div><a>' );
+                    'fallback_cb' => 'false',
+                    'container'       => '',
+                    'items_wrap'      => '<ul id="%1$s" class="%2$s navbar-end">%3$s</ul>',
+                ));
             ?>
         </div>
     </div>
 </nav>
-
-<?php
-              
-              wp_nav_menu( array(
-                'theme_location' => 'header_menu_left',
-                'container'       => 'div',
-                'container_class' => 'navbar-start',
-                // 'echo' => '',
-                // 'items_wrap' => '%3$s',
-                // 'depth' => 0
-            ))
-
-?>
 <main id="site-content" role="main">
