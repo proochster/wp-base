@@ -261,34 +261,30 @@
  * ENQUEUE SCRIPTS
  */
 
-    // add_action( 'wp_enqueue_scripts', 'wp2018_scripts' );
+    add_action( 'wp_enqueue_scripts', 'wpbase_scripts' );
     //  // LOAD SCRIPTS
-    //  function wp2018_scripts() {
+     function wpbase_scripts() {
 
-    //     // Owl carousel
-    //     // wp_enqueue_script( 'wp2018-owl-script', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js', array('jquery'), '', false );
-    //     // Plugins
-    //   	// wp_enqueue_script( 'wp2018-plugins-script', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'), '', true );
-    //     // App.js
-    //     wp_enqueue_script( 'wp2018-app-script', get_template_directory_uri() . '/js/app-min.js', array('jquery'), '', true );
+        // App.js
+        wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), '', true );
 
     //     // Theme stylesheet.
-    //     wp_enqueue_style( 'wp2018-style', get_stylesheet_uri() );
-    //     // Add Wordpress dashicons to the theme
-    //     wp_enqueue_style( 'dashicons' );
-    //  }
+    //     wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
+        // Add Wordpress dashicons to the theme
+        wp_enqueue_style( 'dashicons' );
+     }
 
 
-    //   // Defer scripts
-    //   // add_filter( 'clean_url', function( $url )
-    //   // {
-    //   //     if ( FALSE === strpos( $url, '.js' ) )
-    //   //     { // not our file
-    //   //         return $url;
-    //   //     }
-    //   //     // Must be a ', not "!
-    //   //     return "$url' defer='defer";
-    //   // }, 11, 1 );
+    //   Async scripts
+    add_filter( 'clean_url', function( $url )
+    {
+        if ( FALSE === strpos( $url, 'app-min.js' ) )
+        { // not our file
+            return $url;
+        }
+        // Must be a ', not "!
+        return "$url' async='async";
+    }, 11, 1 );
 
 
     /* Scripts*/
