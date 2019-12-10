@@ -346,6 +346,7 @@
         
         // Get Theme version to append it to the asset '?ver=$ver'
         // $ver = wp_get_theme()->get( 'Version' );
+        $ver = '';
 
         // App.js
         wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), $ver, true );
