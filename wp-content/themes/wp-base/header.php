@@ -27,13 +27,6 @@
 <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
 </head>
 <body <?php body_class(); ?>>
-<?php /* if ( get_header_image() ) : ?>
-    <div id="site-header">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-            <img src="<?php header_image(); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-        </a>
-    </div>
-<?php endif;*/ ?>
 <nav class="navbar has-shadow is-spaced" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
@@ -54,9 +47,9 @@
         </div>
 
         <div class="navbar-menu">
-            <?php
+            <?php 
                 wp_nav_menu( array(
-                    'theme_location' => 'header_menu_left',
+                    'theme_location' => 'header_menu_start',
                     'fallback_cb' => 'false',
                     'container'       => '',
                     'items_wrap'      => '<ul id="%1$s" class="%2$s navbar-start">%3$s</ul>',
@@ -64,7 +57,7 @@
             ?>
             <?php
                 wp_nav_menu( array(
-                    'theme_location' => 'header_menu_right',
+                    'theme_location' => 'header_menu_end',
                     'fallback_cb' => 'false',
                     'container'       => '',
                     'items_wrap'      => '<ul id="%1$s" class="%2$s navbar-end">%3$s</ul>',

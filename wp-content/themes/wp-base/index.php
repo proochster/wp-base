@@ -9,6 +9,22 @@
 
 get_header();
 ?>
+
+<?php if ( get_header_image() ) : ?>
+<figure class="image">
+    <img alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" src="<?php echo get_header_image(); ?>">
+</figure>
+<?php endif ?>
+
+<!-- <section class="hero is-warning is-bold is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Primary title</h1>
+            <h2 class="subtitle">Primary subtitle</h2>
+        </div>
+    </div>
+</section> -->
+
 <div class="section">
     <div class="container">
 
