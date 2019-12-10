@@ -154,6 +154,7 @@
      * Register custom settings
      * @link https://codex.wordpress.org/Theme_Customization_API
      * @link https://developer.wordpress.org/themes/customize-api/
+     * @link https://premium.wpmudev.org/blog/wordpress-theme-customizer-guide/
      */
     // function wpbase_customize_register( $wp_customize ) {
 
@@ -232,6 +233,11 @@
                 //     'settings'       => 'text_setting',
                 //     'type'           => 'text',
                 // ) ) );
+            /**
+             * Other control Classes
+             * WP_Customize_Upload_Control()
+             * WP_Customize_Image_Control()
+             */
 
     //  }
     //  add_action( 'customize_register', 'wpbase_customize_register' );
@@ -337,9 +343,12 @@
     add_action( 'wp_enqueue_scripts', 'wpbase_scripts' );
     //  // LOAD SCRIPTS
      function wpbase_scripts() {
+        
+        // Get Theme version to append it to the asset '?ver=$ver'
+        // $ver = wp_get_theme()->get( 'Version' );
 
         // App.js
-        wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), '', true );
+        wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), $ver, true );
 
         // // Theme stylesheet.
         // wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
