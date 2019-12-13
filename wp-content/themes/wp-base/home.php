@@ -30,24 +30,24 @@ if ( get_header_image() && is_front_page() ) : ?>
 
 <div class="section">
     <div class="container">
-        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"></a>
-        <h1 class="title"><?php the_title(); ?></h1>
-        <?php
-        // print_r(get_post());
-         ?>
 
-<?php
-    // TO SHOW THE PAGE CONTENTS
-    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-        <div class="entry-content-page">
-            <?php the_content(); ?> <!-- Page Content -->
-        </div><!-- .entry-content-page -->
+      <div class="tile is-ancestor">
 
-    <?php
-    endwhile; //resetting the page loop
-    wp_reset_query(); //resetting the page query
-    ?>
-    </div>
+      <?php while ( have_posts() ) : the_post(); ?> 
+
+        <div class="tile is-4 is-vertical is-parent">
+          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="tile is-child box">
+              <?php if ( has_post_thumbnail() ) the_post_thumbnail('medium_large'); ?>
+              <h2 class="title"><?php the_title(); ?></h2>
+              <p><?php the_excerpt(); ?></p>
+          </a>
+        </div>
+
+      <?php endwhile;
+      wp_reset_query(); ?>
+
+      </div>
+  </div>
 </div>
 <?php
 get_footer();
