@@ -31,6 +31,8 @@ const
 
     input = {
         'srcScss': 'src/resources/scss/**/*.scss',
+        'srcInline': 'src/resources/scss/inline.scss',
+        'srcLogin': 'src/resources/scss/login.scss',
         'componentsScss': 'src/components/**/*.scss',
         'jsPlugins': 'src/resources/js/plugins/*.js',
         'jsComponents': 'src/components/**/*.js',
@@ -48,16 +50,23 @@ const
     #GULP TASK THAT RUNS AT THE OUTSET
 \*------------------------------------*/
 
-gulp.task('default', ['theme-css', 'inline-css', 'build-js', 'serve'])
+gulp.task('default', ['theme-css', 'inline-css', 'login-css', 'build-js', 'serve'])
 
 /*------------------------------------*\
     #BUILD CSS
 \*------------------------------------*/
 
 gulp.task('inline-css', function() {
-    gulp.src('src/resources/scss/bundle.scss')
+    gulp.src(input.srcInline)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(concat('inline.css'))
+    .pipe(gulp.dest(output.wpStylesheets));
+});
+
+gulp.task('login-css', function() {
+    gulp.src(input.srcLogin)
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(concat('login.css'))
     .pipe(gulp.dest(output.wpStylesheets));
 });
 
@@ -87,14 +96,14 @@ gulp.task('theme-css', function() {
     #GULP SERVE - WATCHES FIELS AND SETS UP BROWSERSYNC
 \*------------------------------------*/
 
-gulp.task('serve', ['theme-css', 'inline-css', 'build-js'], function() {
+gulp.task('serve', ['theme-css', 'inline-css', 'login-css', 'build-js'], function() {
 
     browserSync.init({
         proxy: localhost,
         notify: false
     });
 
-    gulp.watch([input.srcScss, input.componentsScss], ['theme-css', 'inline-css']).on('change', browserSync.reload);
+    gulp.watch([input.srcScss, input.componentsScss], ['theme-css', 'inline-css', 'login-css']).on('change', browserSync.reload);
     gulp.watch(['*.html', '*.php']).on('change', browserSync.reload);
     gulp.watch([input.jsComponents], ['build-js']).on('change', browserSync.reload);
 });
