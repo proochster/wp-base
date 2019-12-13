@@ -89,8 +89,8 @@
         add_theme_support(
             'custom-logo',
             array(
-                // 'height'      => 50,
-                // 'width'       => 50,
+                'width'       => 200,
+                'height'      => 80,
                 // 'flex-height' => true,
                 // 'flex-width'  => true,
                 'header-text' => array('site-title', 'site-description'),
@@ -312,6 +312,27 @@
     //     );
     // }
 
+/**
+ * Update Login screen
+ */
+
+// Load login.css file
+function custom_login_styles() { ?>
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/login.css">
+<?php }
+add_action( 'login_enqueue_scripts', 'custom_login_styles' );
+
+// Update the logo link to point back to the site rather tahn WP
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+// Update the logo text
+function my_login_logo_url_title() {
+    return 'Back to the homepage';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
 /**

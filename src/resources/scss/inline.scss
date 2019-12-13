@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #BUNDLE
+    # INLINE
 \*------------------------------------*/
 
 @import
@@ -23,7 +23,7 @@
     "./node_modules/bulma/sass/base/helpers.sass",
 
 // "./node_modules/bulma/sass/elements/_all",
-    // "./node_modules/bulma/sass/elements/box.sass",
+    "./node_modules/bulma/sass/elements/box.sass",
     "./node_modules/bulma/sass/elements/button.sass",
     "./node_modules/bulma/sass/elements/container.sass",
     // "./node_modules/bulma/sass/elements/content.sass",
@@ -61,7 +61,7 @@
 
 // "./node_modules/bulma/sass/grid/_all",
     // "./node_modules/bulma/sass/grid/columns.sass",
-    // "./node_modules/bulma/sass/grid/tiles.sass",
+    "./node_modules/bulma/sass/grid/tiles.sass",
 
 // "./node_modules/bulma/sass/layout/_all",
     "./node_modules/bulma/sass/layout/hero.sass",
