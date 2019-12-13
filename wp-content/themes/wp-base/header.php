@@ -30,15 +30,23 @@
 <nav class="navbar has-shadow is-spaced" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>">
-                <?php
-                 if ( get_theme_mod( 'custom_logo' ) ) {
-                    the_custom_logo();
-                } else {
-                    bloginfo('title');
-                }
+
+        <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>">
+            <?php if ( get_theme_mod( 'custom_logo' )) : ?>
+                <?php $custom_logo_url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
+                    /**
+                     * @param Array
+                     * [0] - src
+                     * [1] - width
+                     * [2] - height
+                    */
                 ?>
-            </a>
+                <img src="<?php echo esc_url( $custom_logo_url[0]);?>" alt="<?php bloginfo('title'); ?>" width="<?php echo $custom_logo_url[1];?>" height="<?php echo $custom_logo_url[2];?>"> 
+            <?php else : ?>
+                <?php bloginfo('title'); ?>
+            <?php endif ?>
+        </a>
+
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
