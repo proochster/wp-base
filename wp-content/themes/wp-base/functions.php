@@ -340,21 +340,60 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
  * WIDGET PLACEHOLDERS
  */
 
-    add_action( 'widgets_init', 'wpbase_widgets_init' );
-    // // REGITER SIDEBARS
     function wpbase_widgets_init() {
 
-        register_sidebar( array(
-            'name'          => __( 'Footer', 'wpbase' ),
-            'id'            => 'footer__widgets',
-            'description'   => __( 'Appears in the footer of the page in the 1st section', 'wpbase' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
+        // Arguments used in all register_sidebar() calls.
+        $shared_args = array(
             'before_title'  => '<h3 class="widget-title">',
             'after_title'   => '</h3>',
-        ) );
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+        );
+
+        register_sidebar( 
+            array_merge(
+                $shared_args,
+                array(
+                    'name'          => __( 'Footer #1', 'wpbase' ),
+                    'id'            => 'footer-widgets-1',
+                    'description'   => __( 'Appears in the footer of the page in the 1st section', 'wpbase' )
+                )
+            )    
+         );
+         register_sidebar( 
+             array_merge(
+                 $shared_args,
+                 array(
+                     'name'          => __( 'Footer #2', 'wpbase' ),
+                     'id'            => 'footer-widgets-2',
+                     'description'   => __( 'Appears in the footer of the page in the 2nd section', 'wpbase' )
+                 )
+             )    
+          );
+          register_sidebar( 
+              array_merge(
+                  $shared_args,
+                  array(
+                      'name'          => __( 'Footer #3', 'wpbase' ),
+                      'id'            => 'footer-widgets-3',
+                      'description'   => __( 'Appears in the footer of the page in the 3rd section', 'wpbase' )
+                  )
+              )    
+           );
+           register_sidebar( 
+               array_merge(
+                   $shared_args,
+                   array(
+                       'name'          => __( 'Footer #4', 'wpbase' ),
+                       'id'            => 'footer-widgets-4',
+                       'description'   => __( 'Appears in the footer of the page in the 4th section', 'wpbase' )
+                   )
+               )    
+            );
     }
 
+    // REGITER SIDEBARS
+    add_action( 'widgets_init', 'wpbase_widgets_init' );
 
 /**
  * ---------------
