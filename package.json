@@ -5,7 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/proochster/wp-base",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update": "git pull && gulp theme-css && gulp inline-css && gulp login-css && gulp build-js"
   },
   "author": "",
   "license": "ISC",
