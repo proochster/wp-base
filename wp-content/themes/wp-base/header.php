@@ -41,7 +41,7 @@
                      * [2] - height
                     */
                 ?>
-                <img src="<?php echo esc_url( $custom_logo_url[0]);?>" alt="<?php bloginfo('title'); ?>" width="<?php echo $custom_logo_url[1];?>" height="<?php echo $custom_logo_url[2];?>"> 
+                <img src="<?php echo esc_url( $custom_logo_url[0]);?>" alt="<?php bloginfo('title'); ?>" width="<?php echo $custom_logo_url[1];?>" height="<?php echo $custom_logo_url[2];?>" class="navbar-item"> 
             <?php else : ?>
                 <?php bloginfo('title'); ?>
             <?php endif ?>
