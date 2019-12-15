@@ -43,7 +43,6 @@
 .menu-item-has-children{
     @extend .has-dropdown;
     @extend .is-hoverable;
-    @extend .navbar-item;
 }
 
 .menu-item-has-children > a{
@@ -54,6 +53,7 @@
     @extend .navbar-dropdown;
 }
 
-.menu-item > a{
+.menu-item,
+.menu-item > a {
     @extend .navbar-item;
 }
