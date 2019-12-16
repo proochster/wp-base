@@ -6,6 +6,14 @@
  * @package WordPress
  * @subpackage WP_Base
  */
+
+ // Custom setting for fixed header
+$heeader_fixed = get_theme_mod( 'fixed_header_setting' );
+if($heeader_fixed && $heeader_fixed == 'true') {
+    $body_class .= "has-navbar-fixed-top";
+    $nav_class .= "is-fixed-top";
+}
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -26,11 +34,10 @@
 <meta property="og:url" content="<?php bloginfo('url'); ?>"/>
 <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
 </head>
-<body <?php body_class(); ?>>
-<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+<body <?php body_class($body_class); ?>>
+<nav class="navbar has-shadow <?php echo $nav_class?>" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-
             <?php if ( get_theme_mod( 'custom_logo' )) : ?>
                 <?php $custom_logo_url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
                     /**
