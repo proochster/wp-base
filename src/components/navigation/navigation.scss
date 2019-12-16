@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    #NAVBAR
+\*------------------------------------*/
+
 .navbar-menu{
     width: 0;
     opacity: 0;
@@ -39,21 +43,23 @@
 /**
 * Extend Bulma nav classes. This is more efficient than restructuring custom menus.
 */
-
-.menu-item-has-children{
-    @extend .has-dropdown;
-    @extend .is-hoverable;
-    @extend .navbar-item;
-}
-
-.menu-item-has-children > a{
-    @extend .navbar-link; 
-}
-
-.sub-menu{
-    @extend .navbar-dropdown;
-}
-
-.menu-item > a{
-    @extend .navbar-item;
+.navbar{ // Extend Bulma navitem classes only in the navbar context
+    
+    .menu-item-has-children{
+        @extend .has-dropdown;
+        @extend .is-hoverable;
+    }
+    
+    .menu-item-has-children > a{
+        @extend .navbar-link; 
+    }
+    
+    .sub-menu{
+        @extend .navbar-dropdown;
+    }
+    
+    .menu-item,
+    .menu-item > a {
+        @extend .navbar-item;
+    }
 }

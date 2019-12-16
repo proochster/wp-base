@@ -27,7 +27,7 @@
 <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
 </head>
 <body <?php body_class(); ?>>
-<nav class="navbar has-shadow is-spaced" role="navigation" aria-label="main navigation">
+<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
 
