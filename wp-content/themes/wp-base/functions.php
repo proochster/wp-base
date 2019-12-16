@@ -392,22 +392,23 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
  * ENQUEUE SCRIPTS
  */
 
-    add_action( 'wp_enqueue_scripts', 'wpbase_scripts' );
-    //  // LOAD SCRIPTS
-     function wpbase_scripts() {
-        
-        // Get Theme version to append it to the asset '?ver=$ver'
-        // $ver = wp_get_theme()->get( 'Version' );
-        $ver = '';
+//  // LOAD SCRIPTS
+function wpbase_scripts() {
+    
+    // Get Theme version to append it to the asset '?ver=$ver'
+    // $ver = wp_get_theme()->get( 'Version' );
+    $ver = '';
+    
+    // App.js
+    wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), $ver, true );
+    
+    // // Theme stylesheet.
+    // wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
+    // Add Wordpress dashicons to the theme
+    wp_enqueue_style( 'dashicons' );
 
-        // App.js
-        wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), $ver, true );
-
-        // // Theme stylesheet.
-        // wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
-        // Add Wordpress dashicons to the theme
-        // wp_enqueue_style( 'dashicons' );
-     }
+}
+add_action( 'wp_enqueue_scripts', 'wpbase_scripts' );
 
 
     //   Async scripts
