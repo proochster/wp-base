@@ -156,7 +156,7 @@
      * @link https://developer.wordpress.org/themes/customize-api/
      * @link https://premium.wpmudev.org/blog/wordpress-theme-customizer-guide/
      */
-    // function wpbase_customize_register( $wp_customize ) {
+    function wpbase_customize_register( $wp_customize ) {
 
         /**
          * New setting for controls
@@ -166,10 +166,10 @@
             //     'default'   => '#000000',
             //     // 'transport' => 'refresh',
             // ) );
-            // $wp_customize->add_setting( 'radio_setting' , array(
-            //     'default'   => 'light',
-            //     // 'transport' => 'refresh',
-            // ) );
+            $wp_customize->add_setting( 'fixed_header_setting' , array(
+                'default'   => 'false',
+                // 'transport' => 'refresh',
+            ) );
             // $wp_customize->add_setting( 'text_setting' , array(
             //     'default'   => 'Test',
             //     // 'transport' => 'refresh',
@@ -186,10 +186,10 @@
          * nav - Navigation
          * static_front_page - Static Front Page
          */
-            // $wp_customize->add_section( 'mytheme_new_section_name' , array(
-            //     'title'      => __( 'Visible Section Name', 'wpabse' ),
-            //     'priority'   => 30,
-            // ) );           
+            $wp_customize->add_section( 'fixed_header_section' , array(
+                'title'      => __( 'Fixed header bar', 'wpabse' ),
+                'priority'   => 30,
+            ) );           
             // $wp_customize->add_section( 'custom_section' , array(
             //     'title'      => __( 'Custom section', 'wpabse' ),
             //     'priority'   => 30,
@@ -215,15 +215,16 @@
                 /**
                  * Radio button
                  */
-                // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'your_setting_id', array(
-                //     'label'          => __( 'Label text', 'wpbase' ),
-                //     'section'        => 'colors',
-                //     'settings'       => 'radio_setting',
-                //     'type'           => 'radio',
-                //     'choices'        => array(
-                //         'dark'   => __( 'Dark' ),
-                //         'light'  => __( 'Light' )
-                // ) ) ) );
+                $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'fixed_header_id', array(
+                    'label'          => __( 'Fixed header', 'wpbase' ),
+                    'section'        => 'fixed_header_section',
+                    'settings'       => 'fixed_header_setting',
+                    'type'           => 'radio',
+                    'description' => __( 'This option will make the navigation bar stick to the top of the screen.', 'twentyfifteen' ),
+                    'choices'        => array(
+                        'true'   => __( 'Yes' ),
+                        'false'  => __( 'No' )
+                ) ) ) );
                 /**
                  * Input text
                  */
@@ -239,8 +240,8 @@
              * WP_Customize_Image_Control()
              */
 
-    //  }
-    //  add_action( 'customize_register', 'wpbase_customize_register' );
+     }
+     add_action( 'customize_register', 'wpbase_customize_register' );
 
 /**
  * END THEME CUSTOM SETUP
