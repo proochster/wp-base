@@ -14,7 +14,7 @@ $has_footer_3 = is_active_sidebar( 'footer-widgets-3' );
 ?>
 </main>
 <?php if ( $has_footer_1 || $has_footer_2 || $has_footer_3 || $has_footer_4 ) {?>
-<div class="section has-background-grey-lighter">
+<div class="section has-background-white-ter">
   <div class="container">
     <div class="columns is-multiline">
 
@@ -38,11 +38,9 @@ $has_footer_3 = is_active_sidebar( 'footer-widgets-3' );
   </div>
 </div>
   <?php } ?>
-<footer class="footer">
+<footer class="footer has-background-grey-darker has-text-white">
   <div class="content has-text-centered">
-    <p>
-      <strong><?php bloginfo('title') ?></strong> by <a href="https://jgthms.com">Jakub Prochniak</a>. GitHub <a href="https://github.com/proochster/wp-base" title="GitHub repository">repository</a>.
-    </p>
+    <?php bloginfo('title') ?> by <a href="https://thewebsitesguys.co.uk" title="The Websites Guys">The Websites Guys</a>. GitHub <a href="https://github.com/proochster/wp-base" title="GitHub repository">repository</a>.
     <?php
         get_template_part( 'partials/page-types' );
     ?>
