@@ -15,7 +15,7 @@
     position: fixed;
     display: block;
     z-index: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
         
     &.is-active{
         opacity: 1;
