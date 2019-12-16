@@ -260,8 +260,9 @@
     
     function register_theme_menus() {
         register_nav_menus( array(
-            'header_menu_start' => __( 'Header start', 'wpbase' ),
-            'header_menu_end' => __( 'Header end', 'wpbase' ),
+            'header_menu_start' => __( 'Header menu start', 'wpbase' ),
+            'header_menu_end' => __( 'Header menu end', 'wpbase' ),
+            // 'footer_menu' => __( 'Footer menu', 'wpbase' ),
         ) );
     }
 
@@ -344,7 +345,7 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
         // Arguments used in all register_sidebar() calls.
         $shared_args = array(
-            'before_title'  => '<h3 class="widget-title">',
+            'before_title'  => '<h3 class="title is-6">',
             'after_title'   => '</h3>',
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
@@ -380,16 +381,6 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
                   )
               )    
            );
-           register_sidebar( 
-               array_merge(
-                   $shared_args,
-                   array(
-                       'name'          => __( 'Footer #4', 'wpbase' ),
-                       'id'            => 'footer-widgets-4',
-                       'description'   => __( 'Appears in the footer of the page in the 4th section', 'wpbase' )
-                   )
-               )    
-            );
     }
 
     // REGITER SIDEBARS
