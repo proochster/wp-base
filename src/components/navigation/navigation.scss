@@ -44,6 +44,15 @@
     }
 }
 
+// If admin bar is active
+// .admin-bar{
+//     margin-top
+//     @include tablet{
+
+//     }
+// }
+// .has-navbar-fixed-top
+
 /**
 * Extend Bulma nav classes. This is more efficient than restructuring custom menus.
 */
@@ -62,7 +71,7 @@
         @extend .navbar-dropdown;
     }
     
-    .menu-item,
+    .menu > .menu-item,
     .menu-item > a {
         @extend .navbar-item;
     }
