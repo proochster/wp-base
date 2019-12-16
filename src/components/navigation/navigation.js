@@ -7,6 +7,7 @@ const TopNav = {
         const self = this;
 
         this.$button.onclick = function(){
+            this.classList.toggle('is-active');
             self.$nav.classList.toggle('is-active');
             self.$body.classList.toggle('no-scroll');
             // Update aria attribute
