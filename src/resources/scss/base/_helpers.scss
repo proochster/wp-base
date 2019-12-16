@@ -2,6 +2,8 @@
     #HELPERS
 \*------------------------------------*/
 
-.no-scroll{
-    position: fixed;
+@include touch{
+    .no-scroll{
+        position: fixed;
+    }
 }

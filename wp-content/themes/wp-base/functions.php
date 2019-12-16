@@ -345,7 +345,7 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
         // Arguments used in all register_sidebar() calls.
         $shared_args = array(
-            'before_title'  => '<h3 class="title is-6">',
+            'before_title'  => '<h3 class="title is-4">',
             'after_title'   => '</h3>',
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
@@ -423,6 +423,7 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
     /* Scripts*/  
     function tidy_scripts() {
         wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'contact-form-7' );
         wp_deregister_script('wp-embed');
         wp_deregister_script('jquery');
         wp_enqueue_script('jquery');
