@@ -40,7 +40,7 @@ if ( get_header_image() && is_front_page() ) : ?>
           <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="tile is-child box">
               <?php if ( has_post_thumbnail() ) the_post_thumbnail('medium_large'); ?>
               <h2 class="title"><?php the_title(); ?></h2>
-              <p><?php the_excerpt(); ?></p>
+              <?php the_excerpt(); ?>
           </a>
         </div>
 
