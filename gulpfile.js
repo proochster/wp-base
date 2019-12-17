@@ -41,7 +41,6 @@ const
 
     output = {
         'wpStylesheets': `wp-content/themes/${themeName}`,
-        'srcStylesheets': 'src/resources/scss',
         'wpJavascript': `wp-content/themes/${themeName}/js`
     };
 
@@ -60,14 +59,14 @@ gulp.task('inline-css', function() {
     gulp.src(input.srcInline)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(concat('inline.css'))
-    .pipe(gulp.dest(output.wpStylesheets));
+    .pipe(gulp.dest(output.wpStylesheets + "/assets"));
 });
 
 gulp.task('login-css', function() {
     gulp.src(input.srcLogin)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(concat('login.css'))
-    .pipe(gulp.dest(output.wpStylesheets));
+    .pipe(gulp.dest(output.wpStylesheets + "/assets"));
 });
 
 gulp.task('theme-css', function() {

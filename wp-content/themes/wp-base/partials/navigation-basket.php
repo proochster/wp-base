@@ -13,7 +13,9 @@ if($heeader_fixed && $heeader_fixed == 'true') {
 ?><nav class="navbar has-shadow <?php echo $nav_class?>" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
+            <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title');?>" class="navbar-item">
             <?php if ( get_theme_mod( 'custom_logo' )) : ?>
+
                 <?php $custom_logo_url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
                     /**
                      * @param Array
@@ -22,16 +24,15 @@ if($heeader_fixed && $heeader_fixed == 'true') {
                      * [2] - height
                      */
                     ?>
-            <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>">
-                <img src="<?php echo esc_url( $custom_logo_url[0]);?>" alt="<?php bloginfo('title'); ?>" width="<?php echo $custom_logo_url[1];?>" height="<?php echo $custom_logo_url[2];?>" class="navbar-item"> 
-            </a>
+                <img src="<?php echo esc_url( $custom_logo_url[0]);?>" alt="<?php bloginfo('title'); ?>" height="<?php echo $custom_logo_url[2];?>">
         
             <?php else : ?>
-            <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title');?>" class="navbar-item">
+                
                 <?php bloginfo('title'); ?>
-            </a>
+            
             <?php endif ?>
-
+            </a>
+                
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>

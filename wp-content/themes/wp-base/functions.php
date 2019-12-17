@@ -320,7 +320,7 @@
 
 // Load login.css file
 function custom_login_styles() { ?>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/login.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css">
 <?php }
 add_action( 'login_enqueue_scripts', 'custom_login_styles' );
 

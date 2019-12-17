@@ -21,7 +21,9 @@ if($heeader_fixed && $heeader_fixed == 'true') {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="<?php bloginfo('description'); ?>">
 <style>
-<?php include('inline.css');?>
+<?php 
+include( "assets/inline.css" );
+?>
 </style>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <!-- <meta name="theme-color" content="<?php echo $primaryColour?>" /> -->
