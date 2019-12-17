@@ -2,6 +2,7 @@
 /**
  * WP Base Index
  *
+ * Template Name: Blog home
  *
  * @package WordPress
  * @subpackage WP_Base
