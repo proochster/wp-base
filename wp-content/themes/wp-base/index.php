@@ -20,29 +20,16 @@ if ( get_header_image() && is_front_page() ) : ?>
 
 <?php endif ?>
 
-<!-- <section class="hero is-warning is-bold is-medium">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">Primary title</h1>
-            <h2 class="subtitle">Primary subtitle</h2>
-        </div>
-    </div>
-</section> -->
-
 <div class="section">
     <div class="container">
-        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"></a>
-        <h1 class="title"><?php the_title(); ?></h1>
-        <?php
-        // print_r(get_post());
-         ?>
-
-<?php
+    <?php
     // TO SHOW THE PAGE CONTENTS
-    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-        <div class="entry-content-page">
-            <?php the_content(); ?> <!-- Page Content -->
-        </div><!-- .entry-content-page -->
+    while ( have_posts() ) : the_post();
+    /* Because the_content() works only inside a WP Loop */ ?>
+            <h1 class="title"><?php the_title(); ?></h1>
+            <div class="container">
+                <?php the_content(); ?> <!-- Page Content -->
+            </div>
 
     <?php
     endwhile; //resetting the page loop
@@ -50,5 +37,6 @@ if ( get_header_image() && is_front_page() ) : ?>
     ?>
     </div>
 </div>
+
 <?php
 get_footer();

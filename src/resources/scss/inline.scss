@@ -2,6 +2,10 @@
     # INLINE
 \*------------------------------------*/
 
+// // Dashicons
+// @import url(../../../wp-includes/css/dashicons.css);
+// // "./wp-includes/css/dashicons.css",
+
 @import
 
 /*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
@@ -17,17 +21,17 @@
     "./node_modules/bulma/sass/utilities/mixins.sass", // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
     "./node_modules/bulma/sass/utilities/controls.sass",
 
-// "./node_modules/bulma/sass/base/_all",
-    "./node_modules/bulma/sass/base/minireset.sass",
-    "./node_modules/bulma/sass/base/generic.sass",
-    "./node_modules/bulma/sass/base/helpers.sass",
+"./node_modules/bulma/sass/base/_all",
+    // "./node_modules/bulma/sass/base/minireset.sass",
+    // "./node_modules/bulma/sass/base/generic.sass",
+    // "./node_modules/bulma/sass/base/helpers.sass",
 
 // "./node_modules/bulma/sass/elements/_all",
     "./node_modules/bulma/sass/elements/box.sass",
     "./node_modules/bulma/sass/elements/button.sass",
     "./node_modules/bulma/sass/elements/container.sass",
     // "./node_modules/bulma/sass/elements/content.sass",
-    // "./node_modules/bulma/sass/elements/icon.sass",
+    "./node_modules/bulma/sass/elements/icon.sass",
     "./node_modules/bulma/sass/elements/image.sass",
     "./node_modules/bulma/sass/elements/notification.sass",
     // "./node_modules/bulma/sass/elements/progress.sass",
@@ -59,14 +63,16 @@
     // "./node_modules/bulma/sass/components/panel.sass",
     // "./node_modules/bulma/sass/components/tabs.sass",
 
-// "./node_modules/bulma/sass/grid/_all",
-    "./node_modules/bulma/sass/grid/columns.sass",
-    "./node_modules/bulma/sass/grid/tiles.sass",
+"./node_modules/bulma/sass/grid/_all",
+    // "./node_modules/bulma/sass/grid/columns.sass",
+    // "./node_modules/bulma/sass/grid/tiles.sass",
 
-// "./node_modules/bulma/sass/layout/_all",
-    "./node_modules/bulma/sass/layout/hero.sass",
-    "./node_modules/bulma/sass/layout/section.sass",
-    "./node_modules/bulma/sass/layout/footer.sass",
+"./node_modules/bulma/sass/layout/_all",
+    // "./node_modules/bulma/sass/layout/hero.sass",
+    // "./node_modules/bulma/sass/layout/section.sass",
+    // "./node_modules/bulma/sass/layout/footer.sass",
+
+
 
 // Custom styles
 
