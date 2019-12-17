@@ -36,3 +36,9 @@ Tools: *Node, Npm, Gulp, SCSS, Bulma*
 ## Deployment
 
 - Check and adjust .htaccess file with IP addresses and file caching options
+
+## Maintenance 
+
+Execute `npm run update` command from the server to pull the latest source and build css and js assets.
+
+You need to to add SSH key to the repository prior running it.
