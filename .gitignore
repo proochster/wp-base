@@ -17,6 +17,9 @@ node_modules/
 # ignore config file
 wp-config.php
 
+# ignore .htaccess
+.htaccess
+
 # ignore log files and databases
 *.log
 *.sql
