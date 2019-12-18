@@ -61,14 +61,32 @@ get_header();
                     ?>
                     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                         <h2 class="title is-5"><?php the_title(); ?></h2>
-                        <?php the_excerpt(); ?>
-                        <button class="button is-info is-outlined">
-                            <span><?php _e( 'Read more', 'wpbase' ); ?></span>
-                            <span class="icon is-small">
-                                <span class="dashicons dashicons-arrow-right-alt2"></span>
-                            </span>
-                        </button>
+                        <p class="has-text-dark"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></p>
                     </a>
+                        <div class="level padding-top">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <div class="tags">
+                                        <?php $categories = get_the_category();
+                                        if ( ! empty( $categories ) ) {
+                                            foreach( $categories as $category ){?>
+                                            <span class="tag is-info is-light"><?php echo esc_html( $category->name ); ?></span>    
+                                            <?php }
+                                        }?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="button">
+                                        <span><?php _e( 'Read more', 'wpbase' ); ?></span>
+                                        <span class="icon is-small">
+                                            <span class="dashicons dashicons-arrow-right-alt2"></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     <hr>
                 <?php
                 endwhile; //resetting the page loop

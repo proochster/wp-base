@@ -324,7 +324,7 @@ function custom_login_styles() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'custom_login_styles' );
 
-// Update the logo link to point back to the site rather tahn WP
+// Update the logo link to point back to the site rather than WP
 function my_login_logo_url() {
     return home_url();
 }
@@ -382,6 +382,16 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
                   )
               )    
            );
+           register_sidebar( 
+               array_merge(
+                   $shared_args,
+                   array(
+                       'name'          => __( 'Sidebar', 'wpbase' ),
+                       'id'            => 'sidebar-widgets',
+                       'description'   => __( 'Sidebar template widgets', 'wpbase' )
+                   )
+               )    
+            );
     }
 
     // REGITER SIDEBARS
