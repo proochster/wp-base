@@ -21,12 +21,12 @@ get_header();
                 'We found %s result for your search.',
                 'We found %s results for your search.',
                 $wp_query->found_posts,
-                'wpbase'
+                'wp-base'
             ),
             number_format_i18n($wp_query->found_posts)
         );
     } else {
-        $search_result = __('We could not find any results for your search. You can give it another try through the search form below.', 'wpbase');
+        $search_result = __('We could not find any results for your search. You can give it another try through the search form below.', 'wp-base');
     } ?>
 
     <section class="hero is-primary">
@@ -79,7 +79,7 @@ get_header();
                             <div class="level-right">
                                 <div class="level-item">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="button">
-                                        <span><?php _e( 'Read more', 'wpbase' ); ?></span>
+                                        <span><?php _e( 'Read more', 'wp-base' ); ?></span>
                                         <span class="icon is-small">
                                             <span class="dashicons dashicons-arrow-right-alt2"></span>
                                         </span>

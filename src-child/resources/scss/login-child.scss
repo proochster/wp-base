@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    # LOGIN
+\*------------------------------------*/
+
+@import
+// Variables including Bulma overrides
+"variables/variables", // Included in wp-base
+
+
+// "./node_modules/bulma/sass/utilities/_all",
+    "./node_modules/bulma/sass/utilities/initial-variables.sass", // Included in 
+    // "./node_modules/bulma/sass/utilities/functions.sass",
+    "./node_modules/bulma/sass/utilities/derived-variables.sass"; // Included in wp-base
+    // "./node_modules/bulma/sass/utilities/animations.sass",
+    // "./node_modules/bulma/sass/utilities/mixins.sass", // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
+    // "./node_modules/bulma/sass/utilities/controls.sass";
+
+// Custom styles
+
+body.login{
+    background-color: $primary;
+}
