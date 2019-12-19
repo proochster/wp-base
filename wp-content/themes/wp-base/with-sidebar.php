@@ -38,7 +38,9 @@ get_header();
                 
             <?php if ( $has_sidebar ) : ?>
                 <div class="column is-5-tablet is-4-desktop is-3-fullhd">
-                <?php dynamic_sidebar( 'sidebar-widgets' ); ?>
+                    <div class="is-sticky">
+                        <?php dynamic_sidebar( 'sidebar-widgets' ); ?>
+                    </div>
                 </div>
             <?php endif ?>
 

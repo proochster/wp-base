@@ -8,3 +8,10 @@
         width: 100%;
     }
 }
+
+@include tablet{
+    .is-sticky{
+        position: sticky;
+        top: 0;
+    }
+}
