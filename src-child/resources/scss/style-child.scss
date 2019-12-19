@@ -1,0 +1,94 @@
+/*------------------------------------*\
+    # STYLES
+\*------------------------------------*/
+
+@import
+// Variables including Bulma overrides
+"variables/variables",                                                                          // Overrides wp-base
+
+// "./node_modules/bulma/sass/utilities/_all",
+    "./node_modules/bulma/sass/utilities/initial-variables.sass",                               // Included in wp-base
+    "./node_modules/bulma/sass/utilities/functions.sass",                                       // Included in wp-base
+    "./node_modules/bulma/sass/utilities/derived-variables.sass",                               // Included in wp-base
+    // "./node_modules/bulma/sass/utilities/animations.sass",
+    
+    // @link https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
+    "./node_modules/bulma/sass/utilities/mixins.sass",                                          // Included in wp-base
+    
+    "./node_modules/bulma/sass/utilities/controls.sass",                                        // Included in wp-base
+
+"./node_modules/bulma/sass/base/_all",                                                          // Included in wp-base
+    // "./node_modules/bulma/sass/base/minireset.sass",
+    // "./node_modules/bulma/sass/base/generic.sass",
+    // "./node_modules/bulma/sass/base/helpers.sass",
+
+// "./node_modules/bulma/sass/elements/_all",
+    "./node_modules/bulma/sass/elements/box.sass",                                              // Included in wp-base // Non critical
+    "./node_modules/bulma/sass/elements/button.sass",                                           // Included in wp-base
+    "./node_modules/bulma/sass/elements/container.sass",                                        // Included in wp-base // Non critical
+    // "./node_modules/bulma/sass/elements/content.sass",
+    "./node_modules/bulma/sass/elements/icon.sass",                                             // Included in wp-base
+    "./node_modules/bulma/sass/elements/image.sass",                                            // Included in wp-base // Non critical
+    "./node_modules/bulma/sass/elements/notification.sass",                                     // Included in wp-base
+    // "./node_modules/bulma/sass/elements/progress.sass",
+    // "./node_modules/bulma/sass/elements/table.sass",
+    "./node_modules/bulma/sass/elements/tag.sass",                                              // Included in wp-base
+    "./node_modules/bulma/sass/elements/title.sass",                                            // Included in wp-base
+    // "./node_modules/bulma/sass/elements/other.sass",
+
+// "./node_modules/bulma/sass/form/_all",
+    "./node_modules/bulma/sass/form/shared.sass",                                               // Included in wp-base
+    "./node_modules/bulma/sass/form/input-textarea.sass",                                       // Included in wp-base // Non critical
+    // "./node_modules/bulma/sass/form/checkbox-radio.sass",
+    // "./node_modules/bulma/sass/form/select.sass",
+    // "./node_modules/bulma/sass/form/file.sass",
+    "./node_modules/bulma/sass/form/tools.sass",                                                // Included in wp-base
+
+// "./node_modules/bulma/sass/components/_all",
+    // "./node_modules/bulma/sass/components/breadcrumb.sass",
+    // "./node_modules/bulma/sass/components/card.sass",
+    // "./node_modules/bulma/sass/components/dropdown.sass",
+    "./node_modules/bulma/sass/components/level.sass",                                          // Included in wp-base // Non critical
+    // "./node_modules/bulma/sass/components/list.sass",
+    // "./node_modules/bulma/sass/components/media.sass",
+    // "./node_modules/bulma/sass/components/menu.sass",
+    // "./node_modules/bulma/sass/components/message.sass",
+    // "./node_modules/bulma/sass/components/modal.sass",
+    "./node_modules/bulma/sass/components/navbar.sass",                                         // Included in wp-base
+    // "./node_modules/bulma/sass/components/pagination.sass",
+    // "./node_modules/bulma/sass/components/panel.sass",
+    // "./node_modules/bulma/sass/components/tabs.sass",
+
+"./node_modules/bulma/sass/grid/_all",                                                          // Included in wp-base
+    // "./node_modules/bulma/sass/grid/columns.sass",
+    // "./node_modules/bulma/sass/grid/tiles.sass",
+
+"./node_modules/bulma/sass/layout/_all",                                                        // Included in wp-base
+    // "./node_modules/bulma/sass/layout/hero.sass",
+    // "./node_modules/bulma/sass/layout/section.sass",
+    // "./node_modules/bulma/sass/layout/footer.sass",
+
+
+
+// Custom styles
+
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+
+"../../../src/resources/scss/base/base.scss",                                                   // Get styles from the wp-base parent theme // Non critical
+// "base/base",                                                                                 // Local version. Include this file if you need to extend it.
+
+/*------------------------------------*\
+    #PARTIALS
+\*------------------------------------*/
+
+"../../../src/resources/scss/partials/partials.scss",                                           // Get styles from the wp-base parent theme // Non critical
+// "partials/partials",                                                                         // Local version. Include this file if you need to extend it.
+
+/*------------------------------------*\
+    #COMPONENTS
+\*------------------------------------*/
+
+"../../../src/components/components.scss";                                                      // Get styles from the wp-base parent theme // Non critical
+// "../../components/components";                                                               // Local version. Include this file if you need to extend it.

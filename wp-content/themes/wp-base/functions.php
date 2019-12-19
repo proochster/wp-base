@@ -203,8 +203,8 @@
              * Color picker. Instance of WP_Customize_Color_Control()
              */            
                 // $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-                //     'label'      => __( 'Header Color', 'wpbase' ),
-                //     'description' => __( 'Control description.', 'wpbase' ),
+                //     'label'      => __( 'Header Color', 'wp-base' ),
+                //     'description' => __( 'Control description.', 'wp-base' ),
                 //     'section'    => 'colors', // colors|header_image|background_image|nav|static_front_page
                 //     'settings'   => 'id_ref',
                 // ) ) );   
@@ -216,7 +216,7 @@
                  * Radio button
                  */
                 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'fixed_header_id', array(
-                    'label'          => __( 'Fixed header', 'wpbase' ),
+                    'label'          => __( 'Fixed header', 'wp-base' ),
                     'section'        => 'fixed_header_section',
                     'settings'       => 'fixed_header_setting',
                     'type'           => 'radio',
@@ -229,7 +229,7 @@
                  * Input text
                  */
                 // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'your_setting_id', array(
-                //     'label'          => __( 'Label text', 'wpbase' ),
+                //     'label'          => __( 'Label text', 'wp-base' ),
                 //     'section'        => 'custom_section',
                 //     'settings'       => 'text_setting',
                 //     'type'           => 'text',
@@ -261,9 +261,9 @@
     
     function register_theme_menus() {
         register_nav_menus( array(
-            'header_menu_start' => __( 'Header menu start', 'wpbase' ),
-            'header_menu_end' => __( 'Header menu end', 'wpbase' ),
-            // 'footer_menu' => __( 'Footer menu', 'wpbase' ),
+            'header_menu_start' => __( 'Header menu start', 'wp-base' ),
+            'header_menu_end' => __( 'Header menu end', 'wp-base' ),
+            // 'footer_menu' => __( 'Footer menu', 'wp-base' ),
         ) );
     }
 
@@ -359,9 +359,9 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
             array_merge(
                 $shared_args,
                 array(
-                    'name'          => __( 'Footer #1', 'wpbase' ),
+                    'name'          => __( 'Footer #1', 'wp-base' ),
                     'id'            => 'footer-widgets-1',
-                    'description'   => __( 'Appears in the footer of the page in the 1st section', 'wpbase' )
+                    'description'   => __( 'Appears in the footer of the page in the 1st section', 'wp-base' )
                 )
             )    
          );
@@ -369,9 +369,9 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
              array_merge(
                  $shared_args,
                  array(
-                     'name'          => __( 'Footer #2', 'wpbase' ),
+                     'name'          => __( 'Footer #2', 'wp-base' ),
                      'id'            => 'footer-widgets-2',
-                     'description'   => __( 'Appears in the footer of the page in the 2nd section', 'wpbase' )
+                     'description'   => __( 'Appears in the footer of the page in the 2nd section', 'wp-base' )
                  )
              )    
           );
@@ -379,9 +379,9 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
               array_merge(
                   $shared_args,
                   array(
-                      'name'          => __( 'Footer #3', 'wpbase' ),
+                      'name'          => __( 'Footer #3', 'wp-base' ),
                       'id'            => 'footer-widgets-3',
-                      'description'   => __( 'Appears in the footer of the page in the 3rd section', 'wpbase' )
+                      'description'   => __( 'Appears in the footer of the page in the 3rd section', 'wp-base' )
                   )
               )    
            );
@@ -389,9 +389,9 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
                array_merge(
                    $shared_args,
                    array(
-                       'name'          => __( 'Sidebar', 'wpbase' ),
+                       'name'          => __( 'Sidebar', 'wp-base' ),
                        'id'            => 'sidebar-widgets',
-                       'description'   => __( 'Sidebar template widgets', 'wpbase' )
+                       'description'   => __( 'Sidebar template widgets', 'wp-base' )
                    )
                )    
             );

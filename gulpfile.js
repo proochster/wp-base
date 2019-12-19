@@ -42,8 +42,8 @@ const
         },
         child: {
             'srcScss': 'src-child/resources/scss/**/*.scss',
-            'srcStyle': 'src-child/resources/scss/style.scss',
-            'srcLogin': 'src-child/resources/scss/login.scss',
+            'srcStyle': 'src-child/resources/scss/style-child.scss',
+            'srcLogin': 'src-child/resources/scss/login-child.scss',
             'componentsScss': 'src-child/components/**/*.scss',
             'jsPlugins': 'src-child/resources/js/plugins/*.js',
             'jsComponents': 'src-child/components/**/*.js',
@@ -70,7 +70,7 @@ gulp.task('default', ['child'])
 
 gulp.task('base', ['style-css:base', 'login-css:base', 'build-js:base', 'serve'])
 
-gulp.task('child', ['style-css:child'/*, 'login-css:child', 'build-js:child', 'serve'*/])
+gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child' /*,'serve'*/])
 
 /*------------------------------------*\
     #BUILD BASE CSS
@@ -108,24 +108,32 @@ gulp.task('login-css:base', function() {
     #BUILD CHILD CSS
 \*------------------------------------*/
 
-// gulp.task('inline-css:child', function() {
-//     gulp.src(input.base.srcInline)
-//     .pipe(sass({outputStyle.base: 'compressed'}).on('error', sass.logError))
-//     .pipe(concat('inline.css'))
-//     .pipe(gulp.dest(output.base.wpStylesheets + "/assets"));
-// });
+gulp.task('style-css:child', function() {
+    var themeStream,
+        styleStream,
+        dashIconsStream;
 
-// gulp.task('login-css:child', function() {
-//     gulp.src(input.base.srcLogin)
-//     .pipe(sass({outputStyle.base: 'compressed'}).on('error', sass.logError))
-//     .pipe(concat('login.css'))
-//     .pipe(gulp.dest(output.base.wpStylesheets + "/assets"));
-// });
+        themeStream = gulp.src('src-child/resources/scss/theme-child.css');
+        dashIconsStream = gulp.src('wp-includes/css/dashicons.min.css');
+        styleStream = gulp.src('src-child/resources/scss/style-child.scss')
+                .pipe(sass({
+                    outputStyle: 'compressed'
+                }).on('error', notify.onError(function(error) {
+                    return error.message;
+                })))
+                .pipe(autoprefixer(browsersToPrefix))
+                .pipe(reload({stream: true}));
 
-gulp.task('theme-css:child', function() {
-    gulp.src('src-child/resources/scss/theme-child.css')
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest(output.child.wpStylesheets));
+        return merge(styleStream, dashIconsStream, themeStream)
+          .pipe(concat('style.css'))
+          .pipe(gulp.dest(output.child.wpStylesheets))
+});
+
+gulp.task('login-css:child', function() {
+    gulp.src(input.child.srcLogin)
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(concat('login.css'))
+    .pipe(gulp.dest(output.child.wpStylesheets + "/assets"));
 });
 
 /*------------------------------------*\
@@ -146,6 +154,22 @@ gulp.task('build-js:base', function() {
     .pipe(concat('app.js'))
     .pipe(minify())
     .pipe(gulp.dest(output.base.wpJavascript));
+});
+
+gulp.task('build-js:child', function() {
+    gulp.src([input.base.jsComponents, input.child.jsComponents])
+    .pipe(wrapJS('(function (window, document, undefined) {%= body % }(window, document));'))
+    .pipe(babel({
+        // presets: ['es2015'],
+        compact: true
+    }))
+    .on("error", notify.onError(function (error) {
+        return error.message;
+    }))
+    .on("error", handleError)
+    .pipe(concat('app.js'))
+    .pipe(minify())
+    .pipe(gulp.dest(output.child.wpJavascript));
 });
 
 function handleError(err) {
