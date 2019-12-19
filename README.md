@@ -1,8 +1,10 @@
 # WordPress Development Base 
 
-WordPress: *v5.3*
+WordPress: *v5.3.2*
 
-Theme: *TWG*
+Theme: *WPBASE*
+
+Child theme: *WPBASE CHILD*
 
 Plugins: *Contact Form 7, Classic Editor*
 
