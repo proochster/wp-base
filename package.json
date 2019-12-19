@@ -6,7 +6,7 @@
   "repository": "https://github.com/proochster/wp-base",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "git pull && gulp theme-css && gulp inline-css && gulp login-css && gulp build-js"
+    "update": "git pull && gulp"
   },
   "author": "",
   "license": "ISC",
