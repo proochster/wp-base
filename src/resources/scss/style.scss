@@ -1,17 +1,10 @@
 /*------------------------------------*\
-    # INLINE
+    # STYLES
 \*------------------------------------*/
 
-// // Dashicons
-// @import url(../../../wp-includes/css/dashicons.css);
-// // "./wp-includes/css/dashicons.css",
-
 @import
-
-/*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
-
-// Local Bulma variables
-"variables/bulma",
+// Variables including Bulma overrides
+"variables/variables",
 
 // "./node_modules/bulma/sass/utilities/_all",
     "./node_modules/bulma/sass/utilities/initial-variables.sass",
@@ -27,22 +20,22 @@
     // "./node_modules/bulma/sass/base/helpers.sass",
 
 // "./node_modules/bulma/sass/elements/_all",
-    "./node_modules/bulma/sass/elements/box.sass",
+    "./node_modules/bulma/sass/elements/box.sass",  // Non critical
     "./node_modules/bulma/sass/elements/button.sass",
-    "./node_modules/bulma/sass/elements/container.sass",
+    "./node_modules/bulma/sass/elements/container.sass",  // Non critical
     // "./node_modules/bulma/sass/elements/content.sass",
     "./node_modules/bulma/sass/elements/icon.sass",
-    "./node_modules/bulma/sass/elements/image.sass",
+    "./node_modules/bulma/sass/elements/image.sass",  // Non critical
     "./node_modules/bulma/sass/elements/notification.sass",
     // "./node_modules/bulma/sass/elements/progress.sass",
     // "./node_modules/bulma/sass/elements/table.sass",
-    "./node_modules/bulma/sass/elements/tag.sass",
+    "./node_modules/bulma/sass/elements/tag.sass",  
     "./node_modules/bulma/sass/elements/title.sass",
     // "./node_modules/bulma/sass/elements/other.sass",
 
 // "./node_modules/bulma/sass/form/_all",
     "./node_modules/bulma/sass/form/shared.sass",
-    "./node_modules/bulma/sass/form/input-textarea.sass",
+    "./node_modules/bulma/sass/form/input-textarea.sass",  // Non critical
     // "./node_modules/bulma/sass/form/checkbox-radio.sass",
     // "./node_modules/bulma/sass/form/select.sass",
     // "./node_modules/bulma/sass/form/file.sass",
@@ -52,7 +45,7 @@
     // "./node_modules/bulma/sass/components/breadcrumb.sass",
     // "./node_modules/bulma/sass/components/card.sass",
     // "./node_modules/bulma/sass/components/dropdown.sass",
-    "./node_modules/bulma/sass/components/level.sass",
+    "./node_modules/bulma/sass/components/level.sass",  // Non critical
     // "./node_modules/bulma/sass/components/list.sass",
     // "./node_modules/bulma/sass/components/media.sass",
     // "./node_modules/bulma/sass/components/menu.sass",
@@ -77,28 +70,16 @@
 // Custom styles
 
 /*------------------------------------*\
-    #VARIABLES
-\*------------------------------------*/
-
-// "variables/variables",
-
-/*------------------------------------*\
-    #MIXINS
-\*------------------------------------*/
-
-// "mixins/mixins",
-
-/*------------------------------------*\
     #BASE
 \*------------------------------------*/
 
-"base/base",
+"base/base",  // Non critical
 
 /*------------------------------------*\
     #PARTIALS
 \*------------------------------------*/
 
-"partials/partials",
+"partials/partials",  // Non critical
 
 /*------------------------------------*\
     #COMPONENTS

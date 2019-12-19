@@ -322,18 +322,21 @@
 function custom_login_styles() { ?>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css">
 <?php }
+
 add_action( 'login_enqueue_scripts', 'custom_login_styles' );
 
 // Update the logo link to point back to the site rather than WP
 function my_login_logo_url() {
     return home_url();
 }
+    
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 
 // Update the logo text
 function my_login_logo_url_title() {
     return 'Back to the homepage';
 }
+
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
@@ -402,23 +405,19 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
  * ENQUEUE SCRIPTS
  */
 
-//  // LOAD SCRIPTS
-function wpbase_scripts() {
+// LOAD SCRIPTS
+function wpbase_assets() {
     
     // Get Theme version to append it to the asset '?ver=$ver'
-    // $ver = wp_get_theme()->get( 'Version' );
-    $ver = '';
+    $ver = wp_get_theme()->get( 'Version' );
     
     // App.js
     wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), $ver, true );
     
-    // // Theme stylesheet.
-    // wp_enqueue_style( 'wpbase-style', get_stylesheet_uri() );
-    // Add Wordpress dashicons to the theme
-    wp_enqueue_style( 'dashicons' );
-
+    // Theme stylesheet.
+    wp_enqueue_style( 'wpbase-style', get_stylesheet_uri(), array(), $ver, 'all' );
 }
-add_action( 'wp_enqueue_scripts', 'wpbase_scripts' );
+add_action( 'wp_enqueue_scripts', 'wpbase_assets' );
 
 
     //   Async scripts
@@ -440,10 +439,11 @@ add_action( 'wp_enqueue_scripts', 'wpbase_scripts' );
         wp_deregister_script('jquery');
         wp_enqueue_script('jquery');
     }
-    // Load the script when in Theme Customisation 
+    // Load the script only when in Theme Customisation 
     if (!is_customize_preview()) add_action("wp_enqueue_scripts", "tidy_scripts", 11);
 
     // https://www.isitwp.com/remove-code-wordpress-header/
+    // Get rid of the clutter
     remove_action('wp_head', 'rsd_link');
     remove_action('wp_head', 'wlwmanifest_link');
     remove_action('wp_head', 'wp_generator'); // WordPress version

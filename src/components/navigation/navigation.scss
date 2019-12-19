@@ -11,7 +11,6 @@
     opacity: 0;
     transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0ms, width 0.5s;
     height: 100%;
-    // text-align: center;
     position: fixed;
     display: block;
     z-index: 0;
@@ -44,14 +43,17 @@
     }
 }
 
-// If admin bar is active
-// .admin-bar{
-//     margin-top
-//     @include tablet{
-
+// Push navigation bar down if admin bar is active and navbar is fixed to the top.
+// .admin-bar.has-navbar-fixed-top{
+//     .navbar{
+//         top: 46px;
+    
+//         @include tablet{
+//             top: 32px;
+//         }
 //     }
 // }
-// .has-navbar-fixed-top
+
 
 /**
 * Extend Bulma nav classes. This is more efficient than restructuring custom menus.
