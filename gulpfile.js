@@ -124,7 +124,7 @@ gulp.task('style-css:child', function() {
                 .pipe(autoprefixer(browsersToPrefix))
                 .pipe(reload({stream: true}));
 
-        return merge(styleStream, dashIconsStream, themeStream)
+        return merge(themeStream, styleStream, dashIconsStream)
           .pipe(concat('style.css'))
           .pipe(gulp.dest(output.child.wpStylesheets))
 });
