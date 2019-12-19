@@ -28,8 +28,11 @@ wp-config.php
 # ignore compiled styles
 # add a path below to the style when setting up a new theme `wp-content/themes/{new-theme-name}/style.css`
 wp-content/themes/wp-base/style.css
-wp-content/themes/wp-base/assets/inline.css
 wp-content/themes/wp-base/assets/login.css
+
+wp-content/themes/wp-base-child/style.css
+wp-content/themes/wp-base-child/assets/login.css
+
 
 # exclude compiled Javascript files
 # add a path below to the js folder when setting up a new theme `wp-content/themes/{new-theme-name}/js/`
@@ -51,3 +54,4 @@ wp-signup.php
 wp-signup.php
 wp-trackback.php
 xmlrpc.php
+
