@@ -42,3 +42,9 @@ Tools: *Node, Npm, Gulp, SCSS, Bulma*
 Execute `npm run update` command from the server to pull the latest source and build css and js assets.
 
 You need to to add SSH key to the repository prior running it.
+
+## Plugins
+
+#### Contact form 7
+
+Form template using Bulma classes for styles. [Gist >](https://gist.github.com/proochster/155dad5591f8917a78f93391fef5f7ba)
