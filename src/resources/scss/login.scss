@@ -3,26 +3,20 @@
 \*------------------------------------*/
 
 @import
+// Variables including Bulma overrides
+"variables/variables",
 
-/*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
-
-// Local Bulma variables
-"variables/bulma",
 
 // "./node_modules/bulma/sass/utilities/_all",
     "./node_modules/bulma/sass/utilities/initial-variables.sass",
-    "./node_modules/bulma/sass/utilities/functions.sass",
-    "./node_modules/bulma/sass/utilities/derived-variables.sass",
+    // "./node_modules/bulma/sass/utilities/functions.sass",
+    "./node_modules/bulma/sass/utilities/derived-variables.sass";
     // "./node_modules/bulma/sass/utilities/animations.sass",
-    "./node_modules/bulma/sass/utilities/mixins.sass", // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
-    "./node_modules/bulma/sass/utilities/controls.sass";
+    // "./node_modules/bulma/sass/utilities/mixins.sass", // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
+    // "./node_modules/bulma/sass/utilities/controls.sass";
 
 // Custom styles
 
 body.login{
     background-color: $primary;
 }
-
-// #login h1 a, .login h1 a {
-//     display: none;  
-// }

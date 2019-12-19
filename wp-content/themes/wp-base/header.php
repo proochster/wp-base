@@ -20,16 +20,10 @@ if($heeader_fixed && $heeader_fixed == 'true') {
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="<?php bloginfo('description'); ?>">
-<style>
-<?php 
-include( "assets/inline.css" );
-?>
-</style>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <!-- <meta name="theme-color" content="<?php echo $primaryColour?>" /> -->
 <!-- <meta name="msapplication-navbutton-color" content="<?php echo $primaryColour?>" />
 <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $primaryColour?>" /> -->
-<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/img/favicon.png" type="image/x-icon">
 <meta property="og:title" content="<?php bloginfo('title'); ?>"/>
 <meta property="og:site_name" content="<?php bloginfo('title'); ?>"/>
 <meta property="og:url" content="<?php bloginfo('url'); ?>"/>
