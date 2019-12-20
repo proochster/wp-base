@@ -10,8 +10,15 @@
 }
 
 @include tablet{
+
     .is-sticky{
         position: sticky;
-        top: 0;
+        top: 24px;
+        top: 1.5rem;
+
+        .has-navbar-fixed-top &{
+            top: 80px; // fallback
+            top: $navbar-height + 1.5rem;
+        }
     }
 }
