@@ -89,8 +89,8 @@
         add_theme_support(
             'custom-logo',
             array(
-                'width'       => 200,
-                'height'      => 80,
+                // 'width'       => 200,
+                // 'height'      => 80,
                 // 'flex-height' => true,
                 // 'flex-width'  => true,
                 'header-text' => array('site-title', 'site-description'),
@@ -149,6 +149,26 @@
     }
 
     add_action('after_setup_theme', 'wpbase_theme_setup');
+
+    /**
+     * Preload cuctom logo tag
+     */
+    function wpbase_preload_custom_logo() {
+       // Check if custom logo has been set and preload it
+       $custom_logo_id = get_theme_mod( 'custom_logo' );
+       
+       if( $custom_logo_id ){
+
+        $custom_logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+        ?>
+        <link rel="preload" href="<?php echo esc_url( $custom_logo_url[0]);?>" as="image">
+        <?php
+       } else {
+           return;
+       }
+    }
+
+    add_action( 'wp_head', 'wpbase_preload_custom_logo' );
 
     /**
      * Register custom settings
