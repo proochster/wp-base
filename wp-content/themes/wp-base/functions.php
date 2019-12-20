@@ -16,6 +16,16 @@
  */
 
 /**
+ * Languages
+ * 
+ */
+
+// function wpbase_load_theme_textdomain() {
+//     load_theme_textdomain( 'wp-base', get_template_directory() . '/languages' );
+// }
+// add_action( 'after_setup_theme', 'wpbase_load_theme_textdomain' );
+
+/**
  * ------------------
  * THEME CUSTOM SETUP
  */
@@ -207,11 +217,11 @@
          * static_front_page - Static Front Page
          */
             $wp_customize->add_section( 'fixed_header_section' , array(
-                'title'      => __( 'Fixed header bar', 'wpabse' ),
+                'title'      => __( 'Fixed header bar', 'wp-base' ),
                 'priority'   => 30,
             ) );           
             // $wp_customize->add_section( 'custom_section' , array(
-            //     'title'      => __( 'Custom section', 'wpabse' ),
+            //     'title'      => __( 'Custom section', 'wp-base' ),
             //     'priority'   => 30,
             // ) );
 
@@ -240,10 +250,10 @@
                     'section'        => 'fixed_header_section',
                     'settings'       => 'fixed_header_setting',
                     'type'           => 'radio',
-                    'description' => __( 'This option will make the navigation bar stick to the top of the screen.', 'twentyfifteen' ),
+                    'description' => __( 'This option will make the navigation bar stick to the top of the screen.', 'wp-base' ),
                     'choices'        => array(
-                        'true'   => __( 'Yes' ),
-                        'false'  => __( 'No' )
+                        'true'   => __( 'Yes', 'wp-base' ),
+                        'false'  => __( 'No', 'wp-base' )
                 ) ) ) );
                 /**
                  * Input text
@@ -301,16 +311,16 @@
     //         'work_post', // Post Type cannot be named the same as the page
     //         array(
     //             'labels' => array(
-    //                 'name' => __('Work'),
-    //                 'singular_name' => __('Work'),
-    //                 'add_new' => __('Add new'),
-    //                 'add_new_item' => __('Add new work item'),
-    //                 'edit_item' => __('Edit work item'),
-    //                 'new_item' => __('New work item'),
-    //                 'view_item' => __('View work item'),
-    //                 'search_items' => __('Search work item'),
-    //                 'not_found' =>  __('Nothing found'),
-    //                 'not_found_in_trash' => __('Nothing found in Trash'),
+    //                 'name' => __('Work', 'wp-base'),
+    //                 'singular_name' => __('Work', 'wp-base'),
+    //                 'add_new' => __('Add new', 'wp-base'),
+    //                 'add_new_item' => __('Add new work item', 'wp-base'),
+    //                 'edit_item' => __('Edit work item', 'wp-base'),
+    //                 'new_item' => __('New work item', 'wp-base'),
+    //                 'view_item' => __('View work item', 'wp-base'),
+    //                 'search_items' => __('Search work item', 'wp-base'),
+    //                 'not_found' =>  __('Nothing found', 'wp-base'),
+    //                 'not_found_in_trash' => __('Nothing found in Trash', 'wp-base'),
     //                 'parent_item_colon' => ''
     //             ),
     //             'public' => true,

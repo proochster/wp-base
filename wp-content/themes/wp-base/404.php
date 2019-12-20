@@ -13,9 +13,9 @@ get_header();
 <section class="hero is-warning is-bold is-medium">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title is-1">404</h1>
-            <h2 class="subtitle">Sorry, the page you are looking for could not be found.</h2>
-            <a href="<?php bloginfo('url'); ?>" title="Back to home" class="button is-link">< Back to home</a>
+            <h1 class="title is-1"><?php _e('404', 'wp-base'); ?></h1>
+            <h2 class="subtitle"><?php _e('Sorry, the page you are looking for could not be found.', 'wp-base'); ?></h2>
+            <a href="<?php bloginfo('url'); ?>" title="<?php _e('< Back to home', 'wp-base'); ?>" class="button is-link"><?php _e('< Back to home', 'wp-base'); ?></a>
         </div>
     </div>
 </section>
