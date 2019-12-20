@@ -70,7 +70,7 @@ gulp.task('default', ['child'])
 
 gulp.task('base', ['style-css:base', 'login-css:base', 'build-js:base', 'serve'])
 
-gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child' /*,'serve'*/])
+gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child','serve'])
 
 /*------------------------------------*\
     #BUILD BASE CSS
@@ -180,14 +180,37 @@ function handleError(err) {
     #GULP SERVE - WATCHES FIELS AND SETS UP BROWSERSYNC
 \*------------------------------------*/
 
-gulp.task('serve', ['style-css:base', 'login-css:base', 'build-js:base'], function() {
+gulp.task('serve', ['style-css:child', 'login-css:child', 'build-js:child'], function() {
 
     browserSync.init({
         proxy: localhost,
         notify: false
     });
 
-    gulp.watch([input.base.srcScss, input.base.componentsScss], ['style-css:base', 'login-css:base']).on('change', browserSync.reload);
+    gulp.watch(
+        [
+            input.base.srcScss,
+            input.base.componentsScss,
+            input.child.srcScss,
+            input.child.componentsScss
+        ], [
+            'style-css:base',
+            'login-css:base',
+            'style-css:child',
+            'login-css:child'
+        ]
+    ).on('change', browserSync.reload);
+    
+    gulp.watch(
+        [
+            input.base.jsComponents,
+            input.child.jsComponents
+        ], [
+            'build-js:base',
+            'build-js:child'
+        ]
+    ).on('change', browserSync.reload);
+
     gulp.watch(['*.html', '*.php']).on('change', browserSync.reload);
-    gulp.watch([input.base.jsComponents], ['build-js:base']).on('change', browserSync.reload);
+    
 });
