@@ -74,7 +74,7 @@ if($heeader_fixed && $heeader_fixed == 'true') {
                 <span class="icon">
                 <span class="dashicons dashicons-cart"></span>
                 </span>
-                <span>Basket</span>
+                <span><?php _e('Basket', 'wp-base'); ?></span>
                 <span class="icon">
                     <span class="tag is-rounded">0</span>
                 </span>
