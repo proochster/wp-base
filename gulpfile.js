@@ -70,7 +70,7 @@ gulp.task('default', ['child'])
 
 gulp.task('base', ['style-css:base', 'login-css:base', 'build-js:base', 'serve'])
 
-gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child','serve'])
+gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child', 'serve'])
 
 /*------------------------------------*\
     #BUILD BASE CSS
