@@ -425,6 +425,16 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
                    )
                )    
             );
+            register_sidebar( 
+                array_merge(
+                    $shared_args,
+                    array(
+                        'name'          => __( 'Contact', 'wp-base' ),
+                        'id'            => 'contact-widgets',
+                        'description'   => __( 'Contact us widgets', 'wp-base' )
+                    )
+                )    
+             );
     }
 
     // REGITER SIDEBARS

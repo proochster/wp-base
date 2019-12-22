@@ -33,5 +33,9 @@
 }
 
 .wpcf7-response-output {
-    @extend .notification;
+	@extend .notification;
+}
+
+.wpcf7-display-none{
+	display: none;
 }
