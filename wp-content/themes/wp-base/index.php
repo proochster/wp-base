@@ -15,17 +15,15 @@ get_header();
 <div class="section">
     <div class="container">
     <?php
-    // TO SHOW THE PAGE CONTENTS
-    while ( have_posts() ) : the_post();
-    /* Because the_content() works only inside a WP Loop */ ?>
+    while ( have_posts() ) : the_post(); ?>
             <h1 class="title"><?php the_title(); ?></h1>
             <div class="container">
-                <?php the_content(); ?> <!-- Page Content -->
+                <?php the_content(); ?>
             </div>
 
     <?php
-    endwhile; //resetting the page loop
-    wp_reset_query(); //resetting the page query
+    endwhile;
+    wp_reset_query();
     ?>
     </div>
 </div>
