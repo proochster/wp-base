@@ -170,9 +170,7 @@
        if( $custom_logo_id ){
 
         $custom_logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-        ?>
-        <link rel="preload" href="<?php echo esc_url( $custom_logo_url[0]);?>" as="image">
-        <?php
+        ?><link rel="preload" href="<?php echo esc_url( $custom_logo_url[0]);?>" as="image"><?php
        } else {
            return;
        }
@@ -348,26 +346,25 @@
  * Update Login screen
  */
 
-// Load login.css file
-function custom_login_styles() { ?>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css">
-<?php }
+    // Load login.css file
+    function custom_login_styles() {
+        ?><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css"><?php
+    }
+    add_action( 'login_enqueue_scripts', 'custom_login_styles' );
 
-add_action( 'login_enqueue_scripts', 'custom_login_styles' );
+    // Update the logo link to point back to the site rather than WP
+    function my_login_logo_url() {
+        return home_url();
+    }
+        
+    add_filter( 'login_headerurl', 'my_login_logo_url' );
 
-// Update the logo link to point back to the site rather than WP
-function my_login_logo_url() {
-    return home_url();
-}
-    
-add_filter( 'login_headerurl', 'my_login_logo_url' );
+    // Update the logo text
+    function my_login_logo_url_title() {
+        return 'Back to the homepage';
+    }
 
-// Update the logo text
-function my_login_logo_url_title() {
-    return 'Back to the homepage';
-}
-
-add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+    add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
 /**
@@ -440,25 +437,35 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
     // REGITER SIDEBARS
     add_action( 'widgets_init', 'wpbase_widgets_init' );
 
+
 /**
  * ---------------
  * ENQUEUE SCRIPTS
  */
 
-// LOAD SCRIPTS
-function wpbase_assets() {
-    
-    // Get Theme version to append it to the asset '?ver=$ver'
-    $ver = wp_get_theme()->get( 'Version' );
-    
-    // App.js
-    wp_enqueue_script( 'wpbase-app-script', get_template_directory_uri() . '/js/app-min.js', array(), $ver, true );
-    
-    // Theme stylesheet.
-    wp_enqueue_style( 'wpbase-style', get_stylesheet_uri(), array(), $ver, 'all' );
-}
-add_action( 'wp_enqueue_scripts', 'wpbase_assets' );
+    // LOAD MAIN SCRIPTS
+    function wpbase_assets() {
+        
+        // Get Theme version to append it to the asset '?ver=$ver'
+        $ver = wp_get_theme()->get( 'Version' );
+        
+        // App.js
+        wp_enqueue_script( 'wpbase-app-script', get_stylesheet_directory_uri() . '/js/app-min.js', array(), $ver, true );
+        
+        // Theme stylesheet.
+        wp_enqueue_style( 'wpbase-style', get_stylesheet_uri(), array(), $ver, 'all' );
+    }
+    add_action( 'wp_enqueue_scripts', 'wpbase_assets' );
 
+    // SCRIPTS REQUIRED ON-LOAD
+    function wpbase_priority_script() { 
+
+        // Get Theme version to append it to the asset '?ver=$ver'
+        $ver = wp_get_theme()->get( 'Version' );
+
+        ?><script src="<?php echo get_stylesheet_directory_uri() . '/js/onload-min.js' . '?ver=' . $ver ?>"></script><?php
+    }
+    add_action( 'wp_footer', 'wpbase_priority_script' );
 
     //   Async scripts
     add_filter( 'clean_url', function( $url )

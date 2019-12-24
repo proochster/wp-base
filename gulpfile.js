@@ -38,6 +38,7 @@ const
             'componentsScss': 'src/components/**/*.scss',
             'jsPlugins': 'src/resources/js/plugins/*.js',
             'jsComponents': 'src/components/**/*.js',
+            'jsOnload': 'src/onload/**/*.js',
             'input.wpPhp': `wp-content/themes/${themeName}/**/*.php`
         },
         child: {
@@ -47,6 +48,7 @@ const
             'componentsScss': 'src-child/components/**/*.scss',
             'jsPlugins': 'src-child/resources/js/plugins/*.js',
             'jsComponents': 'src-child/components/**/*.js',
+            'jsOnload': 'src-child/onload/**/*.js',
             'input.wpPhp': `wp-content/themes/${themeNameChild}/**/*.php`
         }
     },
@@ -68,9 +70,9 @@ const
 
 gulp.task('default', ['child'])
 
-gulp.task('base', ['style-css:base', 'login-css:base', 'build-js:base', 'serve'])
+gulp.task('base', ['style-css:base', 'login-css:base', 'build-js:base', 'build-onload-js:base', 'serve'])
 
-gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child', 'serve'])
+gulp.task('child', ['style-css:child', 'login-css:child', 'build-js:child', 'build-onload-js:child', 'serve'])
 
 /*------------------------------------*\
     #BUILD BASE CSS
@@ -168,6 +170,38 @@ gulp.task('build-js:child', function() {
     }))
     .on("error", handleError)
     .pipe(concat('app.js'))
+    .pipe(minify())
+    .pipe(gulp.dest(output.child.wpJavascript));
+});
+
+gulp.task('build-onload-js:base', function() {
+    gulp.src([input.base.jsOnload])
+    .pipe(wrapJS('(function (window, document, undefined) {%= body % }(window, document));'))
+    .pipe(babel({
+        // presets: ['es2015'],
+        compact: true
+    }))
+    .on("error", notify.onError(function (error) {
+        return error.message;
+    }))
+    .on("error", handleError)
+    .pipe(concat('onload.js'))
+    .pipe(minify())
+    .pipe(gulp.dest(output.base.wpJavascript));
+});
+
+gulp.task('build-onload-js:child', ['build-onload-js:base'], function() {
+    gulp.src([input.base.jsOnload, input.child.jsOnload])
+    .pipe(wrapJS('(function (window, document, undefined) {%= body % }(window, document));'))
+    .pipe(babel({
+        // presets: ['es2015'],
+        compact: true
+    }))
+    .on("error", notify.onError(function (error) {
+        return error.message;
+    }))
+    .on("error", handleError)
+    .pipe(concat('onload.js'))
     .pipe(minify())
     .pipe(gulp.dest(output.child.wpJavascript));
 });
