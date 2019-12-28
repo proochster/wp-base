@@ -348,7 +348,17 @@
 
     // Load login.css file
     function custom_login_styles() {
-        ?><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css"><?php
+        ?><?php if ( get_theme_mod( 'custom_logo' )) : ?>
+        <?php $custom_logo_url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
+            /**
+             * @param Array
+             * [0] - src
+             * [1] - width
+             * [2] - height
+             */
+            ?><style>.login h1 a{background-image: url("<?php echo esc_url( $custom_logo_url[0]);?>") !important;}</style><?php
+         endif ?>
+         <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css"><?php
     }
     add_action( 'login_enqueue_scripts', 'custom_login_styles' );
 
