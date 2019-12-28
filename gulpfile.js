@@ -214,7 +214,7 @@ function handleError(err) {
     #GULP SERVE - WATCHES FIELS AND SETS UP BROWSERSYNC
 \*------------------------------------*/
 
-gulp.task('serve', ['style-css:child', 'login-css:child', 'build-js:child'], function() {
+gulp.task('serve', ['style-css:child', 'login-css:child', 'build-js:child', 'build-onload-js:child'], function() {
 
     browserSync.init({
         proxy: localhost,
@@ -238,10 +238,14 @@ gulp.task('serve', ['style-css:child', 'login-css:child', 'build-js:child'], fun
     gulp.watch(
         [
             input.base.jsComponents,
-            input.child.jsComponents
+            input.child.jsComponents,
+            input.base.jsOnload,
+            input.child.jsOnload
         ], [
             'build-js:base',
-            'build-js:child'
+            'build-js:child',
+            'build-onload-js:base',
+            'build-onload-js:child' 
         ]
     ).on('change', browserSync.reload);
 
