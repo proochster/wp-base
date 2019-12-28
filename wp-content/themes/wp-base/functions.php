@@ -356,7 +356,7 @@
              * [1] - width
              * [2] - height
              */
-            ?><style>.login h1 a{background-image: url("<?php echo esc_url( $custom_logo_url[0]);?>") !important;}</style><?php
+            ?><style>.login h1 a{background-image: url("<?php echo esc_url( $custom_logo_url[0]);?>") !important; background-size: auto !important; width: auto !important;}</style><?php
          endif ?>
          <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/login.css"><?php
     }
