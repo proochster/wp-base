@@ -18,7 +18,7 @@ get_header();
 <div class="section">
     <div class="container">
         <div class="columns">
-            <div class="column is-7-tablet is-8-desktop is-9-fullhd">
+            <div class="column is-7-tablet is-8-desktop">
 
             <?php
             // TO SHOW THE PAGE CONTENTS
@@ -37,7 +37,7 @@ get_header();
             </div>
                 
             <?php if ( $has_sidebar ) : ?>
-                <div class="column is-5-tablet is-4-desktop is-3-fullhd">
+                <div class="column is-5-tablet is-4-desktop">
                     <div class="is-sticky">
                         <?php dynamic_sidebar( 'sidebar-widgets' ); ?>
                     </div>
