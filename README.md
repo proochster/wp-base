@@ -10,6 +10,12 @@ Plugins: *Contact Form 7, Classic Editor*
 
 Tools: *Node, Npm, Gulp, SCSS, Bulma*
 
+Theme features: 
+
+- Image lazy-loading
+- Sticky header option
+- Custom login styles
+
 ## Localhost installation
 
 - Clone this repo
