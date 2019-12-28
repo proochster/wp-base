@@ -19,17 +19,17 @@ $has_footer_3 = is_active_sidebar( 'footer-widgets-3' );
     <div class="columns is-multiline">
 
       <?php if ( $has_footer_1 ) : ?>
-        <div class="column is-6-tablet is-3-desktop is-one-third-fullhd">
+        <div class="column is-6-tablet is-one-third-desktop">
         <?php dynamic_sidebar( 'footer-widgets-1' ); ?>
         </div>
       <?php endif ?>
       <?php if ( $has_footer_2 ) : ?>
-        <div class="column is-6-tablet is-3-desktop is-one-third-fullhd">
+        <div class="column is-6-tablet is-one-third-desktop">
         <?php dynamic_sidebar( 'footer-widgets-2' ); ?>
         </div>
       <?php endif ?>
       <?php if ( $has_footer_3 ) : ?>
-        <div class="column is-12-tablet is-6-desktop is-one-third-fullhd">
+        <div class="column is-12-tablet is-one-third-desktop">
         <?php dynamic_sidebar( 'footer-widgets-3' ); ?>
         </div>
       <?php endif ?>
