@@ -8,6 +8,10 @@ wp-content/*
 !wp-content/plugins/
 !wp-content/themes/
 
+# igore WooCommerce
+wp-content/plugins/woocommerce/
+wp-content/plugins/woocommerce-gateway-stripe/
+
 # ignore specific themes
 wp-content/themes/twenty*/
 
