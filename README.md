@@ -15,6 +15,8 @@ Theme features:
 - Image lazy-loading
 - Sticky header option
 - Custom login styles
+- Search page
+- WooCommerce support v.3.8.1
 
 ## Localhost installation
 
@@ -56,3 +58,8 @@ You need to to add SSH key to the repository prior running it.
 #### Contact form 7
 
 Form template using Bulma classes for styles. [Gist >](https://gist.github.com/proochster/155dad5591f8917a78f93391fef5f7ba)
+
+#### WooCommerce
+
+Theme support has been added to the child theme but the plugin needs to be installed manually. Developed for WooCommerce version 3.8.1.
+

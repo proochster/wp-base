@@ -343,6 +343,7 @@
     // }
 
 /**
+ * -------------------
  * Update Login screen
  */
 
@@ -511,3 +512,56 @@
     /* Disable WP emojis */
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+
+/**
+ * -----------
+ * WooCommerce
+ */
+
+    if ( class_exists( 'woocommerce' ) ) {
+            
+        // Register WooCommerce
+        function wpchild_add_woocommerce_support() {
+            add_theme_support( 'woocommerce' );
+            // add_theme_support( 'woocommerce', array(
+            //     'thumbnail_image_width' => 150,
+            //     'single_image_width'    => 300,
+        
+            //     'product_grid'          => array(
+            //         'default_rows'    => 3,
+            //         'min_rows'        => 2,
+            //         'max_rows'        => 8,
+            //         'default_columns' => 4,
+            //         'min_columns'     => 2,
+            //         'max_columns'     => 5,
+            //     ),
+            // ) );
+        }
+        add_action( 'after_setup_theme', 'wpchild_add_woocommerce_support' );
+        
+        // Remove most of the WooCommerce styles withe the line below
+        add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+        /* Tidy styles */  
+        function wpbase_dequeue_woocommerce_styles() {
+            wp_deregister_style( 'wc-block-style' );
+            // You can unset the styles one by one too
+            //     unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+            //     unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+            //     unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+            //     return $enqueue_styles;
+        }
+        add_action("wp_enqueue_scripts", "wpbase_dequeue_woocommerce_styles", 11);
+
+        // Add custom WooCommerce styles
+        function wpchild_enqueue_woocommerce_styles(){
+    
+            $ver = wp_get_theme()->get( 'Version' );
+            
+            wp_register_style( 'wpbase-woocommerce', get_template_directory_uri() . '/css/woocommerce.css', array(), $ver );
+            
+            wp_enqueue_style( 'wpbase-woocommerce' );
+        }
+        add_action( 'wp_enqueue_scripts', 'wpchild_enqueue_woocommerce_styles' );
+    }
