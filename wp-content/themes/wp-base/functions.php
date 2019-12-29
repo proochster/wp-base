@@ -488,7 +488,7 @@
         return "$url' async='async";
     }, 11, 1 );
 
-    /* Scripts*/  
+    /* Scripts ans styles */  
     function tidy_scripts() {
         wp_dequeue_style( 'wp-block-library' );
         wp_dequeue_style( 'contact-form-7' );
