@@ -555,13 +555,13 @@
         add_action("wp_enqueue_scripts", "wpbase_dequeue_woocommerce_styles", 11);
 
         // Add custom WooCommerce styles
-        function wpchild_enqueue_woocommerce_styles(){
+        // function wpchild_enqueue_woocommerce_styles(){
     
-            $ver = wp_get_theme()->get( 'Version' );
+        //     $ver = wp_get_theme()->get( 'Version' );
             
-            wp_register_style( 'wpbase-woocommerce', get_template_directory_uri() . '/css/woocommerce.css', array(), $ver );
+        //     wp_register_style( 'wpbase-woocommerce', get_template_directory_uri() . '/css/woocommerce.css', array(), $ver );
             
-            wp_enqueue_style( 'wpbase-woocommerce' );
-        }
-        add_action( 'wp_enqueue_scripts', 'wpchild_enqueue_woocommerce_styles' );
+        //     wp_enqueue_style( 'wpbase-woocommerce' );
+        // }
+        // add_action( 'wp_enqueue_scripts', 'wpchild_enqueue_woocommerce_styles' );
     }
