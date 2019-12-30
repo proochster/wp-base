@@ -564,4 +564,99 @@
         //     wp_enqueue_style( 'wpbase-woocommerce' );
         // }
         // add_action( 'wp_enqueue_scripts', 'wpchild_enqueue_woocommerce_styles' );
+
+        
+        // Address fields
+        function wpbase_change_address_fields( $fields ) {
+            
+            $fields['first_name']['label_class'] = 'label';
+            $fields['first_name']['input_class'] = array('input');
+            $fields['first_name']['placeholder'] = __('First name');
+
+            $fields['last_name']['label_class'] = 'label';
+            $fields['last_name']['input_class'] = array('input');
+            $fields['last_name']['placeholder'] = __('Last name');
+
+            $fields['company']['label_class'] = 'label';
+            $fields['company']['input_class'] = array('input');
+            $fields['company']['placeholder'] = __('Company');
+
+            $fields['country']['label_class'] = 'label';
+            $fields['country']['input_class'] = array('input');
+
+            return $fields;
+            
+        }
+        add_filter( 'woocommerce_default_address_fields' , 'wpbase_change_address_fields' );
+
+        // Shipping fields
+        function wpbase_change_shipping_fields( $fields ) {
+            
+            $fields['shipping_address_1']['label_class'] = 'label';
+            $fields['shipping_address_1']['input_class'] = array('input');
+            
+            $fields['shipping_address_2']['label_class'] = 'label';
+            $fields['shipping_address_2']['input_class'] = array('input');
+            
+            $fields['shipping_city']['label_class'] = 'label';
+            $fields['shipping_city']['input_class'] = array('input');
+            $fields['shipping_city']['placeholder'] = __('City');
+
+            $fields['shipping_state']['label_class'] = 'label';
+            $fields['shipping_state']['input_class'] = array('input');
+
+            $fields['shipping_postcode']['label_class'] = 'label';
+            $fields['shipping_postcode']['input_class'] = array('input');
+
+            return $fields;
+            
+        }
+        add_filter( 'woocommerce_shipping_fields' , 'wpbase_change_shipping_fields' );
+
+        // Billing fields
+        function wpbase_change_billing_fields( $fields ) {
+            
+            $fields['billing_address_1']['label_class'] = 'label';
+            $fields['billing_address_1']['input_class'] = array('input');
+            
+            $fields['billing_address_2']['label_class'] = 'label';
+            $fields['billing_address_2']['input_class'] = array('input');
+            
+            $fields['billing_city']['label_class'] = 'label';
+            $fields['billing_city']['input_class'] = array('input');
+            $fields['billing_city']['placeholder'] = __('City');
+
+            $fields['billing_state']['label_class'] = 'label';
+            $fields['billing_state']['input_class'] = array('input');
+
+            $fields['billing_postcode']['label_class'] = 'label';
+            $fields['billing_postcode']['input_class'] = array('input');
+
+            $fields['billing_phone']['label_class'] = 'label';
+            $fields['billing_phone']['input_class'] = array('input');
+
+            $fields['billing_email']['label_class'] = 'label';
+            $fields['billing_email']['input_class'] = array('input');
+            $fields['billing_email']['placeholder'] = __('example@email.com');
+
+            return $fields;
+            
+        }
+        add_filter( 'woocommerce_billing_fields' , 'wpbase_change_billing_fields' );
+
+        // function change_woocommerce_field_markup($field, $key, $args, $value) {
+         
+        //     // if($key === 'first_name'){
+                
+        //     //     echo $value;
+        //     //     // $field = '<div class="hello-from-the-field">'.$field.'</div>';
+
+        //     // }
+         
+        //     print_r($args);
+
+        //     return $field;
+        //  } 
+         
+        //  add_filter("woocommerce_form_field_country","change_woocommerce_field_markup", 10, 4);
     }
