@@ -181,8 +181,8 @@
     
     $colors: mergeColorMaps(
         (
-            "white": ($white, $black),
-            "black": ($black, $white),
+            // "white": ($white, $black),
+            // "black": ($black, $white),
             "light": ($light, $light-invert),
             "dark": ($dark, $dark-invert),
             "primary": ($primary, $primary-invert, $primary-light, $primary-dark),
@@ -198,13 +198,13 @@
     $shades: mergeColorMaps(
         (
             "black-bis": $black-bis,
-            "black-ter": $black-ter,
-            "grey-darker": $grey-darker,
-            "grey-dark": $grey-dark,
+            // "black-ter": $black-ter,
+            // "grey-darker": $grey-darker,
+            // "grey-dark": $grey-dark,
             "grey": $grey,
-            "grey-light": $grey-light,
-            "grey-lighter": $grey-lighter,
-            "white-ter": $white-ter,
+            // "grey-light": $grey-light,
+            // "grey-lighter": $grey-lighter,
+            // "white-ter": $white-ter,
             "white-bis": $white-bis
         ), $custom-shades
     ) !default;
