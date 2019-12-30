@@ -2,14 +2,6 @@
 /**
  * Login Form
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/form-login.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
  * @version 3.6.0
@@ -29,7 +21,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 		<div class="notification">
 
-			<form class="woocommerce-form woocommerce-form-login login" method="post">
+			<form method="post">
 
 				<?php do_action( 'woocommerce_login_form_start' ); ?>
 
@@ -78,7 +70,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 		
 		<div class="notification">
 
-			<form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
+			<form method="post" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
 
 				<?php do_action( 'woocommerce_register_form_start' ); ?>
 

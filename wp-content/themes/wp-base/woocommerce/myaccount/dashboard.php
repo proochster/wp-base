@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'<strong>' . esc_html( $current_user->display_name ) . '</strong>'
 	);
 ?></h3>
-<p class="padding-bottom"><?php
+<p><?php
 	printf(
 		/* translators: 1: user display name 2: logout url */
 		__( 'Not %1$s? <a href="%2$s">Log out</a>', 'woocommerce' ),
