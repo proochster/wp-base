@@ -16,21 +16,22 @@ get_header();
 
 <div class="section">
     <div class="container">
+        <h1 class="title"><?php the_title(); ?></h1>
+        <hr>
         <div class="columns">
-            <div class="column is-half">
+            <div class="column is-half is-one-third-desktop">
                 <?php while ( have_posts() ) : the_post(); ?>
-                    <h1 class="title"><?php the_title(); ?></h1>
                     <div class="container">
                         <?php the_content(); ?>
                     </div>
                 <?php endwhile;
                 wp_reset_query(); ?>
             </div>
-            <div class="column is-half">
-                <?php if ( $has_contact_widgets ) : ?>
+            <?php if ( $has_contact_widgets ) : ?>
+                <div class="column is-half is-one-third-desktop">
                     <?php dynamic_sidebar( 'contact-widgets' ); ?>
-                <?php endif ?>
-            </div>
+                </div>
+            <?php endif ?>
         </div>
 
     </div>
