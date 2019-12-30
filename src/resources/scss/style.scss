@@ -9,21 +9,21 @@
     "./node_modules/bulma/sass/utilities/functions.sass",
     "./node_modules/bulma/sass/utilities/derived-variables.sass",
     // "./node_modules/bulma/sass/utilities/animations.sass",
-    "./node_modules/bulma/sass/utilities/mixins.sass", // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
+    "./node_modules/bulma/sass/utilities/mixins.sass",                              // https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
     "./node_modules/bulma/sass/utilities/controls.sass",
 
-"./node_modules/bulma/sass/base/_all",
-    // "./node_modules/bulma/sass/base/minireset.sass",
-    // "./node_modules/bulma/sass/base/generic.sass",
-    // "./node_modules/bulma/sass/base/helpers.sass",
+// "./node_modules/bulma/sass/base/_all",
+    "bulma/base/minireset.sass",                                                    // Local version of ./node_modules/bulma/sass/base/minireset.sass
+    "./node_modules/bulma/sass/base/generic.sass",
+    "./node_modules/bulma/sass/base/helpers.sass",
 
 // "./node_modules/bulma/sass/elements/_all",
-    "./node_modules/bulma/sass/elements/box.sass",  // Non critical
+    "./node_modules/bulma/sass/elements/box.sass",                                  // Non critical
     "./node_modules/bulma/sass/elements/button.sass",
-    "./node_modules/bulma/sass/elements/container.sass",  // Non critical
+    "./node_modules/bulma/sass/elements/container.sass",                            // Non critical
     // "./node_modules/bulma/sass/elements/content.sass",
     "./node_modules/bulma/sass/elements/icon.sass",
-    "./node_modules/bulma/sass/elements/image.sass",  // Non critical
+    "./node_modules/bulma/sass/elements/image.sass",                                // Non critical
     "./node_modules/bulma/sass/elements/notification.sass",
     // "./node_modules/bulma/sass/elements/progress.sass",
     // "./node_modules/bulma/sass/elements/table.sass",
@@ -33,7 +33,7 @@
 
 // "./node_modules/bulma/sass/form/_all",
     "./node_modules/bulma/sass/form/shared.sass",
-    "./node_modules/bulma/sass/form/input-textarea.sass",  // Non critical
+    "./node_modules/bulma/sass/form/input-textarea.sass",                           // Non critical
     // "./node_modules/bulma/sass/form/checkbox-radio.sass",
     // "./node_modules/bulma/sass/form/select.sass",
     // "./node_modules/bulma/sass/form/file.sass",
@@ -43,7 +43,7 @@
     // "./node_modules/bulma/sass/components/breadcrumb.sass",
     // "./node_modules/bulma/sass/components/card.sass",
     // "./node_modules/bulma/sass/components/dropdown.sass",
-    "./node_modules/bulma/sass/components/level.sass",  // Non critical
+    "./node_modules/bulma/sass/components/level.sass",                              // Non critical
     // "./node_modules/bulma/sass/components/list.sass",
     // "./node_modules/bulma/sass/components/media.sass",
     // "./node_modules/bulma/sass/components/menu.sass",
@@ -71,13 +71,13 @@
     #BASE
 \*------------------------------------*/
 
-"base/base",  // Non critical
+"base/base",                                                                        // Non critical
 
 /*------------------------------------*\
     #PARTIALS
 \*------------------------------------*/
 
-"partials/partials",  // Non critical
+"partials/partials",                                                                // Non critical
 
 /*------------------------------------*\
     #COMPONENTS

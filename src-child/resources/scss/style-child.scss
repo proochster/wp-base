@@ -3,24 +3,25 @@
 \*------------------------------------*/
 
 @import
-// Variables including Bulma overrides
-"variables/variables",                                                                          // Overrides wp-base
 
 // "./node_modules/bulma/sass/utilities/_all",
-    "./node_modules/bulma/sass/utilities/initial-variables.sass",                               // Included in wp-base
+    // "./node_modules/bulma/sass/utilities/initial-variables.sass",                            // Replaced by variables/variables
     "./node_modules/bulma/sass/utilities/functions.sass",                                       // Included in wp-base
-    "./node_modules/bulma/sass/utilities/derived-variables.sass",                               // Included in wp-base
+    // "./node_modules/bulma/sass/utilities/derived-variables.sass",                            // Replaced by variables/variables
     // "./node_modules/bulma/sass/utilities/animations.sass",
+
+// Variables including Bulma overrides
+    "bulma/variables",                                                                          // Overrides wp-base Bulma variable files: initial-variables.sass and derived-variables.sass
     
     // @link https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
     "./node_modules/bulma/sass/utilities/mixins.sass",                                          // Included in wp-base
     
     "./node_modules/bulma/sass/utilities/controls.sass",                                        // Included in wp-base
 
-"./node_modules/bulma/sass/base/_all",                                                          // Included in wp-base
-    // "./node_modules/bulma/sass/base/minireset.sass",
-    // "./node_modules/bulma/sass/base/generic.sass",
-    // "./node_modules/bulma/sass/base/helpers.sass",
+// "./node_modules/bulma/sass/base/_all",                                                       // Included in wp-base
+    "../../../src/resources/scss/bulma/base/minireset.sass",                                    // WP Base local version of ./node_modules/bulma/sass/base/minireset.sass
+    "./node_modules/bulma/sass/base/generic.sass",
+    "bulma/base/helpers.sass",                                                                  // Local version of ./node_modules/bulma/sass/base/helpers.sass
 
 // "./node_modules/bulma/sass/elements/_all",
     "./node_modules/bulma/sass/elements/box.sass",                                              // Included in wp-base // Non critical
@@ -56,7 +57,7 @@
     // "./node_modules/bulma/sass/components/modal.sass",
     "./node_modules/bulma/sass/components/navbar.sass",                                         // Included in wp-base
     // "./node_modules/bulma/sass/components/pagination.sass",
-    "./node_modules/bulma/sass/components/panel.sass",
+    "bulma/components/panel.sass",                                                              // Local version of ./node_modules/bulma/sass/components/panel.sass
     // "./node_modules/bulma/sass/components/tabs.sass",
 
 "./node_modules/bulma/sass/grid/_all",                                                          // Included in wp-base
