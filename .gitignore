@@ -10,6 +10,7 @@ wp-content/*
 
 # igore WooCommerce
 wp-content/plugins/woocommerce/
+wp-content/plugins/woocommerce-admin/
 wp-content/plugins/woocommerce-gateway-stripe/
 
 # ignore specific themes
