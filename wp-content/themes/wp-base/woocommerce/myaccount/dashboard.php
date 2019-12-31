@@ -30,7 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 ?></p>
 
-<div class="notification"><?php
+<article class="message is-info">
+		<div class="message-body"><?php
 	printf(
 		__( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' ),
 		esc_url( wc_get_endpoint_url( 'orders' ) ),
@@ -38,6 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		esc_url( wc_get_endpoint_url( 'edit-account' ) )
 	);
 ?></div>
+</article>
 
 <?php
 	/**
