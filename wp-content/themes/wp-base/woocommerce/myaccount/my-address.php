@@ -31,9 +31,11 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 }
 ?>
 
-<p>
-	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', esc_html__( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-</p>
+<article class="message is-info">
+	<div class="message-body">
+		<?php echo apply_filters( 'woocommerce_my_account_my_address_description', esc_html__( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	</div>
+</article>
 
 
 <div class="columns">
