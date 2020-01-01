@@ -1,14 +1,16 @@
 <?php
 /**
- * Show error messages
+ * Show messages
  *
+ * This template can be overridden by copying it to yourtheme/woocommerce/notices/notice.php.
+ * 
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce/Templates
  * @version     3.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly.
 }
 
 if ( ! $messages ) {
@@ -17,7 +19,7 @@ if ( ! $messages ) {
 
 ?>
 <div class="padding-bottom">
-	<div class="message is-danger">
+	<div class="message is-info">
 		<ul class="message-body" role="alert">
 		<?php foreach ( $messages as $message ) : ?>
 			<li>
