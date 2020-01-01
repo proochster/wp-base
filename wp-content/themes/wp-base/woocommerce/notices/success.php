@@ -1,8 +1,7 @@
 <?php
 /**
- * Show error messages
+ * Show messages
  *
- * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce/Templates
  * @version     3.5.0
  */
@@ -17,15 +16,15 @@ if ( ! $messages ) {
 
 ?>
 <div class="padding-bottom">
-	<div class="message is-danger">
+	<div class="message is-info">
 		<ul class="message-body" role="alert">
-		<?php foreach ( $messages as $message ) : ?>
+			<?php foreach ( $messages as $message ) : ?>
 			<li>
 				<?php
 					echo wc_kses_notice( $message );
-				?>
+					?>
 			</li>
-		<?php endforeach; ?>
+			<?php endforeach; ?>
 		</ul>
 	</div>
 </div>

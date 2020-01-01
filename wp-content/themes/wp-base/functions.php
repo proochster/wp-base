@@ -443,6 +443,16 @@
                     )
                 )    
              );
+             register_sidebar( 
+                 array_merge(
+                     $shared_args,
+                     array(
+                         'name'          => __( 'Shop', 'wp-base' ),
+                         'id'            => 'shop',
+                         'description'   => __( 'Shop widgets', 'wp-base' )
+                     )
+                 )    
+              );
     }
 
     // REGITER SIDEBARS
@@ -644,19 +654,30 @@
         }
         add_filter( 'woocommerce_billing_fields' , 'wpbase_change_billing_fields' );
 
-        // function change_woocommerce_field_markup($field, $key, $args, $value) {
-         
-        //     // if($key === 'first_name'){
-                
-        //     //     echo $value;
-        //     //     // $field = '<div class="hello-from-the-field">'.$field.'</div>';
+        /**
+         * Modify elements' structure
+         */
 
-        //     // }
-         
-        //     print_r($args);
+        // ----------------
+        // PRODUCT ARCHIVE
+        // ----------------
 
-        //     return $field;
-        //  } 
-         
-        //  add_filter("woocommerce_form_field_country","change_woocommerce_field_markup", 10, 4);
+        // PRODUCT TITLE. Source: \plugins\woocommerce\includes\wc-template-functions.php
+
+            function woocommerce_template_loop_product_title() {
+                echo '<h2 class="title is-4">' . get_the_title() . '</h2>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+
+
+
+
+        // UNHOOK ELEMENTS. 
+        
+            remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+            // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+            // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+
+
+
     }
