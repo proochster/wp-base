@@ -13,15 +13,19 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 ?>
+<?php if(1 === $total || $total <= $per_page || -1 === $per_page){ ?>
 <span class="level-item">
 	<h4 class="title is-5">
-		<?php
-		if (1 === $total) {
+		<?php if (1 === $total) { 
+
 			_e('Showing the single result', 'woocommerce');
+
 		} elseif ($total <= $per_page || -1 === $per_page) {
+			
 			/* translators: %d: total results */
-			printf(_n('Showing all %d result', 'Showing all %d results', $total, 'woocommerce'), $total);
-		}
-		?>
+			printf(_n('Showing %d result', 'Showing all %d results', $total, 'woocommerce'), $total);
+		
+		} ?>
 	</h4>
 </span>
+<?php } ?>

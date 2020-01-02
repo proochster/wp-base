@@ -387,7 +387,7 @@
 
         // Arguments used in all register_sidebar() calls.
         $shared_args = array(
-            'before_title'  => '<h3 class="title is-4">',
+            'before_title'  => '<h3 class="title is-5">',
             'after_title'   => '</h3>',
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
