@@ -525,6 +525,25 @@
 
 
 /**
+ * Lazyloading filter
+ */
+
+    function wpbase_apply_lazyload_atts( $atts, $attachment ) {
+            
+        $lazySrc = $atts['src'];
+        $lazyDataSrc = $atts['srcset'];
+        
+        $atts['class'] = 'lazy';
+        $atts['src'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8Ww8AAj8BXkQ+xPEAAAAASUVORK5CYII=';
+        $atts['srcset'] = $lazySrc;
+        $atts['data-srcset'] = $lazyDataSrc;
+
+        return $atts;
+    }
+    add_filter( 'wp_get_attachment_image_attributes', 'wpbase_apply_lazyload_atts', 10, 2 );
+
+
+/**
  * -----------
  * WooCommerce
  */
