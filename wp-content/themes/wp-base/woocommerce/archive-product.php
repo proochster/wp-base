@@ -57,6 +57,17 @@ do_action('woocommerce_before_main_content');
 <?php wc_print_notices(); ?>
 
 <div class="columns">
+	<div class="column is-4 is-3-desktop">
+		<div class="is-sticky">
+			<?php 
+			/**
+			 * Hook: woocommerce_sidebar.
+			 *
+			 * @hooked woocommerce_get_sidebar - 10
+			 */
+			do_action('woocommerce_sidebar'); ?>
+		</div>
+	</div>
 	<div class="column">
 
 <?php woocommerce_product_loop_start();
@@ -91,17 +102,6 @@ do_action('woocommerce_before_main_content');
 	do_action('woocommerce_no_products_found');
 } ?>
 		
-	</div>
-	<div class="column is-4 is-3-desktop">
-		<div class="is-sticky">
-			<?php 
-			/**
-			 * Hook: woocommerce_sidebar.
-			 *
-			 * @hooked woocommerce_get_sidebar - 10
-			 */
-			do_action('woocommerce_sidebar'); ?>
-		</div>
 	</div>
 </div>
 
