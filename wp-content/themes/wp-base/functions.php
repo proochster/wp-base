@@ -553,8 +553,8 @@
         // Register WooCommerce
         function wpchild_add_woocommerce_support() {
             add_theme_support( 'woocommerce' );
-            // add_theme_support( 'woocommerce', array(
-            //     'thumbnail_image_width' => 150,
+            add_theme_support( 'woocommerce', array(
+                'thumbnail_image_width' => 720,
             //     'single_image_width'    => 300,
         
             //     'product_grid'          => array(
@@ -565,7 +565,7 @@
             //         'min_columns'     => 2,
             //         'max_columns'     => 5,
             //     ),
-            // ) );
+            ) );
         }
         add_action( 'after_setup_theme', 'wpchild_add_woocommerce_support' );
         
