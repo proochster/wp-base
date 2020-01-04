@@ -15,7 +15,6 @@
     
     // @link https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
     "./node_modules/bulma/sass/utilities/mixins.sass",                                          // Included in wp-base
-    
     "./node_modules/bulma/sass/utilities/controls.sass",                                        // Included in wp-base
 
 // "./node_modules/bulma/sass/base/_all",                                                       // Included in wp-base
@@ -29,11 +28,11 @@
     "./node_modules/bulma/sass/elements/container.sass",                                        // Included in wp-base // Non critical
     // "./node_modules/bulma/sass/elements/content.sass",
     "./node_modules/bulma/sass/elements/icon.sass",                                             // Included in wp-base
-    "./node_modules/bulma/sass/elements/image.sass",                                            // Included in wp-base // Non critical
+    "bulma/elements/image.sass",                                                                // Local version of ./node_modules/bulma/sass/elements/image.sass
     "./node_modules/bulma/sass/elements/notification.sass",                                     // Included in wp-base
     // "./node_modules/bulma/sass/elements/progress.sass",
     // "./node_modules/bulma/sass/elements/table.sass",
-    "./node_modules/bulma/sass/elements/tag.sass",                                              // Included in wp-base
+    "bulma/elements/tag.sass",                                                                  // Local version of ./node_modules/bulma/sass/elements/tag.sass
     "./node_modules/bulma/sass/elements/title.sass",                                            // Included in wp-base
     // "./node_modules/bulma/sass/elements/other.sass",
 
