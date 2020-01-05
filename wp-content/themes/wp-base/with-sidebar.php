@@ -2,7 +2,7 @@
 /**
  * WP Base Index
  *
- * Template Name: With sidebar
+ * Template Name: Page with sidebar template
  *
  * @package WordPress
  * @subpackage WP_Base
