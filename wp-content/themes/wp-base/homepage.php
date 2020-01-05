@@ -2,7 +2,7 @@
 /**
  * WP Base Index
  * 
- * Template Name: Homepage
+ * Template Name: Homepage template
  *
  * @package WordPress
  * @subpackage WP_Child

@@ -2,7 +2,7 @@
 /**
  * WP Base Index
  *
- * Template Name: Contact page
+ * Template Name: Contact page template
  *
  * @package WordPress
  * @subpackage WP_Base
