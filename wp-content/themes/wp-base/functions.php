@@ -111,23 +111,23 @@
          * Custon header support
          * @link https://codex.wordpress.org/Custom_Headers
          */
-        add_theme_support(
-            'custom-header',
-            array(
-                // 'default-image'          => '',
-                // 'width'                  => 0,
-                // 'height'                 => 0,
-                // 'flex-height'            => true,
-                // 'flex-width'             => true,
-                // 'uploads'                => true,
-                // 'random-default'         => false,
-                // 'header-text'            => true,
-                // 'default-text-color'     => '',
-                // 'wp-head-callback'       => '',
-                // 'admin-head-callback'    => '',
-                // 'admin-preview-callback' => '',
-            )
-        );
+        // add_theme_support(
+        //     'custom-header',
+        //     array(
+        //         // 'default-image'          => '',
+        //         // 'width'                  => 0,
+        //         // 'height'                 => 0,
+        //         // 'flex-height'            => true,
+        //         // 'flex-width'             => true,
+        //         // 'uploads'                => true,
+        //         // 'random-default'         => false,
+        //         // 'header-text'            => true,
+        //         // 'default-text-color'     => '',
+        //         // 'wp-head-callback'       => '',
+        //         // 'admin-head-callback'    => '',
+        //         // 'admin-preview-callback' => '',
+        //     )
+        // );
 
         /**
          * Enable support for Post Thumbnails on posts and pages.
@@ -136,6 +136,9 @@
         add_theme_support(
             'post-thumbnails'
         );
+       
+        // additional image sizes
+        add_image_size( 'hero', 2000, 9999 ); // width, height, crop:bool - default:false
 
         /**
          * Post formats
@@ -160,6 +163,58 @@
 
     add_action('after_setup_theme', 'wpbase_theme_setup');
 
+
+    /**
+     * Responsive image sizes
+     * 
+     * Use max-width rather than min-width as it doesn't always wark as expected
+     * Default image sizes:
+     * - thumbnail - 150px x 150px
+     * - medium - 300px x 300px
+     * - medium_large - 768px x no height limit
+     * - large - 1024px x 1024px
+     * - full - original size
+     * 
+     * Custom:
+     * - hero - 2000px x no height limit
+     */
+    function wpbase_custom_responsive_image_sizes($sizes, $size) {
+        $width = $size[0];
+
+        if ( is_page() ) {
+
+            if ( $width === 2000 ) {
+                return '(max-width: 600px) 600px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1536px) 1536px, (max-width: 2000px) 2000px';
+            }
+        }
+               
+        return '(max-width: ' . $width . 'px) 100vw, ' . $width . 'px';
+      }      
+      add_filter('wp_calculate_image_sizes', 'wpbase_custom_responsive_image_sizes', 10 , 2);
+
+    /**
+     * Lazyloading filter
+     */
+
+    function wpbase_apply_lazyload_atts( $atts, $attachment) {
+        
+        $lazySrc = $atts['src'];
+        $lazyDataSrc = $atts['srcset'];
+        // $lazyDataSizes = $atts['sizes'];
+
+        // $atts['sizes'] = '';
+        $atts['class'] = 'lazy';
+        // $atts['src'] = $attachment->guid;
+        $atts['src'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8Ww8AAj8BXkQ+xPEAAAAASUVORK5CYII=';
+        // $atts['srcset'] = $lazySrc;
+        $atts['srcset'] = ''; // Empty srcset so the browser doesn't captchure the max image size served by WP by default
+        $atts['data-srcset'] = $lazyDataSrc;
+        // $atts['data-sizes'] = $lazyDataSizes;
+
+        return $atts;
+    }
+    if (!is_admin()) add_filter( 'wp_get_attachment_image_attributes', 'wpbase_apply_lazyload_atts', 10, 2);
+
     /**
      * Preload cuctom logo tag
      */
@@ -175,7 +230,6 @@
            return;
        }
     }
-
     add_action( 'wp_head', 'wpbase_preload_custom_logo' );
 
     /**
@@ -522,25 +576,6 @@
     /* Disable WP emojis */
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
-
-
-/**
- * Lazyloading filter
- */
-
-    function wpbase_apply_lazyload_atts( $atts, $attachment ) {
-            
-        $lazySrc = $atts['src'];
-        $lazyDataSrc = $atts['srcset'];
-        
-        $atts['class'] = 'lazy';
-        $atts['src'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8Ww8AAj8BXkQ+xPEAAAAASUVORK5CYII=';
-        $atts['srcset'] = $lazySrc;
-        $atts['data-srcset'] = $lazyDataSrc;
-
-        return $atts;
-    }
-    add_filter( 'wp_get_attachment_image_attributes', 'wpbase_apply_lazyload_atts', 10, 2 );
 
 
 /**

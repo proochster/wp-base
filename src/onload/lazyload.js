@@ -33,6 +33,7 @@
   const defaults = {
       src: "data-src",
       srcset: "data-srcset",
+    //   sizes: "data-sizes",
       selector: ".lazy",
       loaded: "loaded",
       root: null,
@@ -112,6 +113,7 @@
                       self.observer.unobserve(entry.target);
                       let src = entry.target.getAttribute(self.settings.src);
                       let srcset = entry.target.getAttribute(self.settings.srcset);
+                    //   let sizes = entry.target.getAttribute(self.settings.sizes);
                       entry.target.classList.add(self.settings.loaded);
                       if ("img" === entry.target.tagName.toLowerCase()) {
                           if (src) {
@@ -120,6 +122,9 @@
                           if (srcset) {
                               entry.target.srcset = srcset;
                           }
+                        //   if (sizes) {
+                        //       entry.target.sizes = sizes;
+                        //   }
                       } else {
                           entry.target.style.backgroundImage = "url(" + src + ")";
                       }
