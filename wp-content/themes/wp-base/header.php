@@ -30,5 +30,5 @@ if($heeader_fixed && $heeader_fixed == 'true') {
 <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
 </head>
 <body <?php body_class($body_class); ?>>
-<?php get_template_part( 'partials/navigation-basket' ); ?>
+<?php get_template_part( 'partials/navigation' ); ?>
 <main id="site-content" role="main">
