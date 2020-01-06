@@ -761,4 +761,15 @@
                 return $message;    
             }
             add_filter( 'wc_add_to_cart_message', 'wpbase_add_to_cart_message', 20, 2 );
+
+
+        /**
+         * Single product page
+         */
+        
+            // Remove default flash sale tag include
+            remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+        
+
     }
