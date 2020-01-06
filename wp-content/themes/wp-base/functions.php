@@ -587,10 +587,10 @@
             
         // Register WooCommerce
         function wpchild_add_woocommerce_support() {
-            add_theme_support( 'woocommerce' );
+            // add_theme_support( 'woocommerce' );
             add_theme_support( 'woocommerce', array(
                 'thumbnail_image_width' => 720,
-            //     'single_image_width'    => 300,
+                'single_image_width'    => 2000,
         
             //     'product_grid'          => array(
             //         'default_rows'    => 3,
@@ -601,6 +601,11 @@
             //         'max_columns'     => 5,
             //     ),
             ) );
+            
+            // Enable default gallery scripts
+            // add_theme_support( 'wc-product-gallery-zoom' );
+            // add_theme_support( 'wc-product-gallery-lightbox' );
+            // add_theme_support( 'wc-product-gallery-slider' );
         }
         add_action( 'after_setup_theme', 'wpchild_add_woocommerce_support' );
         
@@ -727,5 +732,44 @@
             remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
             // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
             // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+        
+        // Breadcrumbs
+        function wpbase_breadcrumb_structure( $defaults ) {
+            $defaults['wrap_before'] = '<nav class="breadcrumb" aria-label="breadcrumbs"><ul>';
+            $defaults['wrap_after'] = '</ul></nav>';
+            $defaults['delimiter'] = '';
+            return $defaults;
+        }
+        add_filter('woocommerce_breadcrumb_defaults', 'wpbase_breadcrumb_structure', 20);
+        
+        
+        /** 
+         * Cart messages
+        */
+            // Item added message
+            function wpbase_add_to_cart_message($message, $product) {
+
+                $title = get_the_title( $product );
+                $return_to  = get_permalink(woocommerce_get_page_id('cart'));
+                
+                $message    = sprintf('<div class="level-item level-left"><a href="%s" class="button is-link">%s</a></div> <div class="level-item level-left">%s %s</div>', 
+                $return_to, 
+                __('View cart', 'woocommerce'),
+                $title,
+                __('has been added to your cart.', 'woocommerce') );
+                
+                return $message;    
+            }
+            add_filter( 'wc_add_to_cart_message', 'wpbase_add_to_cart_message', 20, 2 );
+
+
+        /**
+         * Single product page
+         */
+        
+            // Remove default flash sale tag include
+            remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+        
 
     }
