@@ -39,14 +39,14 @@ if($heeader_fixed && $heeader_fixed == 'true') {
                 <span aria-hidden="true"></span>
             </a>
 
-            <?php if ( class_exists( 'woocommerce' ) ) { ?>
+            <?php if ( class_exists( 'woocommerce' ) && wpbase_wc_items_in_cart() ) { ?>
             <p class="control navbar-item is-hidden-desktop">
-                <a class="button is-success" href="#">
+                <a class="button is-success" title="<?php _e('Basket', 'wp-base') ?>" href="<?php echo wpbase_wc_get_cart_permalink(); ?>">
                     <span class="icon">
                     <span class="dashicons dashicons-cart"></span>
                     </span>
                     <span class="icon">
-                        <span class="tag is-rounded">0</span>
+                        <span class="tag is-rounded"><?php echo wpbase_wc_items_in_cart() ?></span>
                     </span>
                 </a>
             </p>
@@ -73,15 +73,15 @@ if($heeader_fixed && $heeader_fixed == 'true') {
             ?>
         </div>
         
-        <?php if ( class_exists( 'woocommerce' ) ) { ?>
+        <?php if ( class_exists( 'woocommerce' ) && wpbase_wc_items_in_cart() ) { ?>
         <p class="control navbar-item is-hidden-touch">
-            <a class="button is-success" href="#">
+            <a class="button is-success" title="<?php _e('Basket', 'wp-base') ?>" href="<?php echo wpbase_wc_get_cart_permalink(); ?>">
                 <span class="icon">
                 <span class="dashicons dashicons-cart"></span>
                 </span>
                 <span><?php _e('Basket', 'wp-base'); ?></span>
                 <span class="icon">
-                    <span class="tag is-rounded">0</span>
+                    <span class="tag is-rounded"><?php echo wpbase_wc_items_in_cart() ?></span>
                 </span>
             </a>
         </p>

@@ -198,7 +198,7 @@
 
     function wpbase_apply_lazyload_atts( $atts, $attachment) {
         
-        $lazySrc = $atts['src'];
+        // $lazySrc = $atts['src'];
         $lazyDataSrc = $atts['srcset'];
         // $lazyDataSizes = $atts['sizes'];
 
@@ -761,6 +761,16 @@
                 return $message;    
             }
             add_filter( 'wc_add_to_cart_message', 'wpbase_add_to_cart_message', 20, 2 );
+
+            // Return number of items in the cart
+            function wpbase_wc_items_in_cart(){
+                return WC()->cart->get_cart_contents_count();
+            }
+
+            // Return a permalink to the Cart page
+            function wpbase_wc_get_cart_permalink(){
+                return WC()->cart->get_cart_url();
+            }
 
 
         /**

@@ -13,9 +13,9 @@ if (!defined('ABSPATH')) {
 
 ?>
 <span class="level-item">
-	<form method="get">
+	<form method="get" class="orderby-form">
 		<div class="select">
-			<select name="orderby" aria-label="<?php esc_attr_e('Shop order', 'woocommerce'); ?>">
+			<select name="orderby" class="orderby-select" aria-label="<?php esc_attr_e('Shop order', 'woocommerce'); ?>">
 				<?php foreach ($catalog_orderby_options as $id => $name) : ?>
 					<option value="<?php echo esc_attr($id); ?>" <?php selected($orderby, $id); ?>><?php echo esc_html($name); ?></option>
 				<?php endforeach; ?>
