@@ -12,7 +12,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<?php //do_action('woocommerce_widget_price_filter_start', $args); ?>
+<?php do_action('woocommerce_widget_price_filter_start', $args); ?>
 
 <form method="get" action="<?php echo esc_url($form_action); ?>">
 	<div class="field has-addons has-addons-centered">
