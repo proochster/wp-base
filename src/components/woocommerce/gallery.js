@@ -3,11 +3,14 @@ const Gallery = {
     mainImage: document.querySelector('.gallery-wrapper img'),
     thumbnails: document.querySelectorAll('.gallery-thumbnails img'),
 
-    activeThumbnail: function(id){
-        if(!id){
+    activeThumbnail: function(thumbnail){
+        if(!thumbnail){
             this.thumbnails[0].classList.add('active');
         } else {
-            console.log(id);
+            this.thumbnails.forEach(function(t){
+                t.classList.remove('active');
+            });
+            thumbnail.target.classList.add('active');
         }
     },
 
@@ -17,10 +20,12 @@ const Gallery = {
             item.addEventListener('click', function(e){
                 e.preventDefault();
                 self.updateMainImage(e);
+                self.activeThumbnail(e);
             });
             item.addEventListener('mouseover', function(e){
                 e.preventDefault();
                 self.updateMainImage(e);
+                self.activeThumbnail(e);
             });
         });
     },
