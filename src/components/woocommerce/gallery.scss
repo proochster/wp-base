@@ -5,10 +5,27 @@
 .gallery{
 
 	&-thumbnails{
+
+		display: flex;
+		flex-wrap: wrap;
 		
 		.active{
-			opacity: 0.6;
-			outline: 1px solid;
+			opacity: 0.5;
 		}
+		
+	}
+
+	&-thumbnail{
+		flex: 1 0 50px;
+		max-width: 100px;
+		min-width: 50px;
+	}
+
+	.thumbnail-image, .thumbnail-link{
+		display: block;
+	}
+	
+	.thumbnail-link{
+		background-color: $primary;
 	}
 }

@@ -24,7 +24,7 @@ array_unshift($attachment_ids, $product->image_id);
 if ( $attachment_ids && $product->get_image_id() ) {
 	foreach ( $attachment_ids as $attachment_id ) {
 
-		$thumbnailHtml = sprintf('<div class="gallery-thumbnail-wrapper"><a href="%s" data-srcset="%s" data-large="%s" title="%s"><img src="%s" data-src="%s" width="100" height="100" class="lazy loaded" alt="%s"></a></div>',
+		$thumbnailHtml = sprintf('<div class="gallery-thumbnail"><a href="%s" data-srcset="%s" data-large="%s" title="%s" class="thumbnail-link"><img src="%s" data-src="%s" width="100" height="100" class="lazy thumbnail-image" alt="%s"></a></div>',
 			/* new src */ 		wp_get_attachment_image_src( $attachment_id, "medium_large")[0],
 			/* new srcset */ 	wp_get_attachment_image_srcset( $attachment_id ),
 			/* large */			wp_get_attachment_image_src( $attachment_id, "large")[0],
