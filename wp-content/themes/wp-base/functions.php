@@ -167,7 +167,7 @@
     /**
      * Responsive image sizes
      * 
-     * Use max-width rather than min-width as it doesn't always wark as expected
+     * Use max-width rather than min-width as it doesn't always work as expected
      * Default image sizes:
      * - thumbnail - 150px x 150px
      * - medium - 300px x 300px
@@ -772,14 +772,14 @@
                 return WC()->cart->get_cart_url();
             }
 
-
         /**
-         * Single product page
-         */
-        
-            // Remove default flash sale tag include
-            remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
-
-        
+         * Change number of related products output
+         */ 
+        function wpbase_related_products_args( $args ) {
+            $args['posts_per_page'] = 3;
+            $args['columns'] = 3;
+            return $args;
+        }
+        add_filter( 'woocommerce_output_related_products_args', 'wpbase_related_products_args', 20 );        
 
     }
