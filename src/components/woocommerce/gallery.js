@@ -1,13 +1,13 @@
 const Gallery = {
-    wrapper: document.querySelector('.gallery-wrapper'),
-    mainImage: document.querySelector('.gallery-wrapper img'),
-    thumbnails: document.querySelectorAll('.gallery-thumbnails img'),
+    wrapper: document.querySelector('.gallery-hero'),
+    mainImage: document.querySelector('.gallery-hero img'),
+    images: document.querySelectorAll('.gallery-images img'),
 
     activeThumbnail: function(thumbnail){
         if(!thumbnail){
-            this.thumbnails[0].classList.add('active');
+            this.images[0].classList.add('active');
         } else {
-            this.thumbnails.forEach(function(t){
+            this.images.forEach(function(t){
                 t.classList.remove('active');
             });
             thumbnail.target.classList.add('active');
@@ -16,11 +16,11 @@ const Gallery = {
 
     selectImage: function(){
         self = this;
-        this.thumbnails.forEach(function(item){
+        this.images.forEach(function(item){
             item.addEventListener('click', function(e){
                 e.preventDefault();
-                self.updateMainImage(e);
-                self.activeThumbnail(e);
+                // self.updateMainImage(e);
+                // self.activeThumbnail(e);
             });
             item.addEventListener('mouseover', function(e){
                 e.preventDefault();
@@ -33,7 +33,7 @@ const Gallery = {
     updateMainImage: function(e){
         // Get values
         let imageAnchor = e.target.parentElement;
-        let newImageSource = imageAnchor.getAttribute('href');
+        // let newImageSource = imageAnchor.getAttribute('href');
         let newImageSrcSet = imageAnchor.getAttribute('data-srcset');
         let newAlt = e.target.getAttribute('alt');
         let newLargeSrc = imageAnchor.getAttribute('data-large');
@@ -41,7 +41,7 @@ const Gallery = {
         let newTitle = imageAnchor.getAttribute('title');
         
         // Set values on the hero image
-        this.mainImage.setAttribute('src', newImageSource);
+        // this.mainImage.setAttribute('src', newImageSource);
         this.mainImage.setAttribute('srcset', newImageSrcSet);
         this.mainImage.setAttribute('alt', newAlt);
         this.mainImage.setAttribute('title', '');

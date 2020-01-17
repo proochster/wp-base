@@ -27,13 +27,17 @@ global $product;
 // $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $post_thumbnail_id = $product->get_image_id();
 $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
+	'is-flex',
 	'gallery',
 	'gallery--' . ( $product->get_image_id() ? 'with-images' : 'without-images' ),
 	// 'gallery--columns-' . absint( $columns ),
 ) );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php // echo esc_attr( $columns ); ?>">
-	<figure class="gallery-wrapper">
+	<div class="gallery-images is-flex-mobile">
+		<?php do_action( 'woocommerce_product_thumbnails' ); ?>
+	</div>
+	<figure class="gallery-hero is-hidden-mobile">
 		<?php
 		if ( $product->get_image_id() ) {
 			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
@@ -45,8 +49,5 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 		?>
-		<div class="gallery-thumbnails">
-			<?php do_action( 'woocommerce_product_thumbnails' ); ?>
-		</div>
 	</figure>
 </div>

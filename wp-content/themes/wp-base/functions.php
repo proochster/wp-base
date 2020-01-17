@@ -179,7 +179,21 @@
      * - hero - 2000px x no height limit
      */
     function wpbase_custom_responsive_image_sizes($sizes, $size) {
+
         $width = $size[0];
+
+        if ( is_product() ) {
+
+            // Related products images
+            if ( $width === 720 ) {
+                return '720';
+            }
+
+            // Gallery images
+            if ( $width === 150 ) {
+                return '(max-width: 768px) 768px, 100px';
+            }
+        }
 
         if ( is_page() ) {
 
@@ -187,7 +201,8 @@
                 return '(max-width: 600px) 600px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1536px) 1536px, (max-width: 2000px) 2000px';
             }
         }
-               
+        
+        // Fallback
         return '(max-width: ' . $width . 'px) 100vw, ' . $width . 'px';
       }      
       add_filter('wp_calculate_image_sizes', 'wpbase_custom_responsive_image_sizes', 10 , 2);

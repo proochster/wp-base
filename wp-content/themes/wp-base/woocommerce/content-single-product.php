@@ -23,8 +23,8 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-	<div class="columns">
-		<div class="column is-6">
+	<div class="columns is-multiline">
+		<div class="column is-8">
 		
 		<?php
 		/**
@@ -40,7 +40,7 @@ if ( post_password_required() ) {
 
 		</div>
 
-		<div class="column is-6">
+		<div class="column is-4">
 			<?php
 			woocommerce_template_single_title();
 			// woocommerce_template_single_rating();
@@ -57,10 +57,11 @@ if ( post_password_required() ) {
 				woocommerce_template_single_meta();
 				// woocommerce_template_single_sharing();
 			?>
+		</div>
+		<div class="column is-8">
 			<?php the_content(); ?>
 		</div>
 	</div>
-
 	<?php
 	/**
 	 * Hook: woocommerce_after_single_product_summary.
