@@ -791,8 +791,8 @@
          * Change number of related products output
          */ 
         function wpbase_related_products_args( $args ) {
-            $args['posts_per_page'] = 3;
-            $args['columns'] = 3;
+            $args['posts_per_page'] = 4;
+            $args['columns'] = 4;
             return $args;
         }
         add_filter( 'woocommerce_output_related_products_args', 'wpbase_related_products_args', 20 );        
