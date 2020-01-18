@@ -15,7 +15,13 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
+<?php if(is_product()){ ?>
+<li class="column is-6-mobile is-3-tablet">
+<?php } else { ?>
 <li class="column is-6 is-4-desktop">
+<?php } ?>
+
+
 	<div class="card">
 
 	<?php

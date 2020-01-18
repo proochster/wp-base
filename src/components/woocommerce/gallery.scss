@@ -4,28 +4,36 @@
 
 .gallery{
 
-	&-thumbnails{
+	@include mobile{
 
-		display: flex;
-		flex-wrap: wrap;
-		
-		.active{
-			opacity: 0.5;
+		margin-left: -($block-spacing);
+		margin-right: -($block-spacing);
+		overflow-x: scroll;
+		scroll-snap-type:x mandatory;
+
+		// &-images{
+		// }
+	}
+
+	&-item{
+
+		@include mobile{
+			min-width: 90%;
+			scroll-snap-align: center;
 		}
-		
-	}
 
-	&-thumbnail{
-		flex: 1 0 50px;
-		max-width: 100px;
 		min-width: 50px;
+
+		.active{
+			opacity: 0.3;
+		}
 	}
 
-	.thumbnail-image, .thumbnail-link{
-		display: block;
+	&-link{
+		background-color: $light;
 	}
-	
-	.thumbnail-link{
-		background-color: $primary;
+
+	&-link, &-image{
+		display: block;
 	}
 }

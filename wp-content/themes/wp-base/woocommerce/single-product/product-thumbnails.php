@@ -24,7 +24,7 @@ array_unshift($attachment_ids, $product->image_id);
 if ( $attachment_ids && $product->get_image_id() ) {
 	foreach ( $attachment_ids as $attachment_id ) {
 
-		$thumbnailHtml = sprintf('<div class="gallery-thumbnail"><a href="%s" data-srcset="%s" data-large="%s" title="%s" class="thumbnail-link"><img src="%s" data-src="%s" width="100" height="100" class="lazy thumbnail-image" alt="%s"></a></div>',
+		$thumbnailHtml = sprintf('<div class="gallery-item"><a href="%s" data-srcset="%s" data-large="%s" title="%s" class="gallery-link"><img src="%s" data-src="%s" class="lazy gallery-image" alt="%s" data-srcset="%s" sizes="%s"></a></div>',
 			/* new src */ 		wp_get_attachment_image_src( $attachment_id, "medium_large")[0],
 			/* new srcset */ 	wp_get_attachment_image_srcset( $attachment_id ),
 			/* large */			wp_get_attachment_image_src( $attachment_id, "large")[0],
@@ -32,12 +32,10 @@ if ( $attachment_ids && $product->get_image_id() ) {
 
 			/* blank */			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8Ww8AAj8BXkQ+xPEAAAAASUVORK5CYII=",
 			/* data-src */ 		wp_get_attachment_image_src( $attachment_id,  array( 100, 100) )[0],
-			/* alt */ 			get_post_meta($attachment_id, '_wp_attachment_image_alt', TRUE)
+			/* alt */ 			get_post_meta($attachment_id, '_wp_attachment_image_alt', TRUE),
+			/* data-srcset */	wp_get_attachment_image_srcset( $attachment_id, "thumbnail" ),
+			/* sizes */ 	wp_get_attachment_image_sizes( $attachment_id, "thumbnail" )
 		);
-		
-		// <div data-thumb="//localhost:3000/wp-content/uploads/2019/12/IMG_8499-scaled-100x100.jpg" data-thumb-alt="Grey kitty" class="woocommerce-product-gallery__image">
-		// 		<a href="//localhost:3000/wp-content/uploads/2019/12/IMG_8499-scaled.jpg">
-					// <img width="100" height="100" src="//localhost:3000/wp-content/uploads/2019/12/IMG_8499-scaled.jpg" class="lazy active loaded" alt="Grey kitty" title="Grey kitty" data-caption="" data-src="" data-large_image="//localhost:3000/wp-content/uploads/2019/12/IMG_8499-scaled.jpg" data-large_image_width="2560" data-large_image_height="1707" srcset="//localhost:3000/wp-content/uploads/2019/12/IMG_8499-scaled-100x100.jpg 100w, //localhost:3000/wp-content/uploads/2019/12/IMG_8499-scaled-720x720.jpg 720w, //localhost:3000/wp-content/uploads/2019/12/IMG_8499-150x150.jpg 150w" sizes="(max-width: 100px) 100vw, 100px" data-srcset=""></a></div>
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $thumbnailHtml, $attachment_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
