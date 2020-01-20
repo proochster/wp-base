@@ -70,12 +70,13 @@
 		}
 
 		&-dot{
+			border: 1px solid $primary;
+			// background-color: $white-bis;
 			display: block;
-			width: 0;
-			height: 0;
-			background-color: $primary;
-			border-radius: 6px;
-			padding: 6px;
+			width: 10px;
+			height: 10px;
+			border-radius: 20px;
+			padding: 14px;
 		}
 	}
 }

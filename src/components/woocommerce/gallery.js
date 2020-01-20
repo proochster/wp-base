@@ -3,6 +3,7 @@ const Gallery = {
     mainImage: document.querySelector('.gallery-hero img'),
     links: document.querySelectorAll('.gallery-link'),
     selectors: document.querySelectorAll('.gallery-large-selector'),
+    dots: document.querySelectorAll('.gallery-nav-dot'),
 
     activeThumbnail: function(s){
         if(!s){
@@ -15,7 +16,7 @@ const Gallery = {
         }
     },
 
-    selectImage: function(){
+    selectLargeImage: function(){
         self = this;
         this.links.forEach(function(link){
             link.addEventListener('click', function(e){
@@ -72,6 +73,8 @@ const Gallery = {
 
     observeNav: function(){
 
+        self = this;
+
         let options = {
             rootMargin: '0px',
             threshold: this.setThresholds()
@@ -82,30 +85,46 @@ const Gallery = {
 
         items.forEach(function (item) {
             observer.observe(item);
+
+            // Call function setting up click events and scrolling to gallery items
+            self.addScrolling(item.getAttribute("data-item-index"));
         });
     },
 
     updateNav: function(items){ 
+        
         items.forEach(function (item){
-
             // Make a connection between gallery item and the navigation dot
             let dataIndex = item.target.getAttribute("data-item-index");
             let dot = document.querySelectorAll('.gallery-nav-dot')[dataIndex];
 
             if(item.isIntersecting){
                 
-                let shadowSize = item.intersectionRatio * 10;
+                let shadowSize = item.intersectionRatio * 5;
                 dot.setAttribute('style', `box-shadow: 0 0 0 ${shadowSize}px #299993`);
+                // dot.setAttribute('style', `border-width: ${shadowSize}px`);
             } else {
                 dot.setAttribute('style', `box-shadow: none`);
+                // dot.setAttribute('style', `border-width: 1px`);
             }
         });       
+    },
+
+    addScrolling: function(index){
+
+        let dot = self.dots[index];
+        let scrollTarget = self.links[index];
+
+        dot.addEventListener('click', function(e){
+            // console.log(e.target, scrollTarget);
+            scrollTarget.scrollIntoView(false);
+        });
     },
 
     start: function(){
         this.activeThumbnail();
         this.observeNav();
-        this.selectImage();
+        this.selectLargeImage();
     },
 
     init: function(){
