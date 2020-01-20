@@ -22,9 +22,12 @@ array_unshift($attachment_ids, $product->image_id);
 
 
 if ( $attachment_ids && $product->get_image_id() ) {
+
+	echo '<div class="gallery-scroll"><div class="gallery-images is-flex-mobile">';
+
 	foreach ( $attachment_ids as $attachment_id ) {
 
-		$thumbnailHtml = sprintf('<div class="gallery-item"><a href="%s" data-srcset="%s" data-large="%s" title="%s" class="gallery-link"><img src="%s" data-src="%s" class="lazy gallery-image" alt="%s" data-srcset="%s" sizes="%s"></a></div>',
+		$thumbnailHtml = sprintf('<div class="gallery-item"><a href="%s" data-srcset="%s" data-large="%s" title="%s" class="gallery-link"><img src="%s" data-src="%s" class="lazy gallery-image" alt="%s" data-srcset="%s" sizes="%s"><span class="gallery-large-selector"></span></a></div>',
 			/* new src */ 		wp_get_attachment_image_src( $attachment_id, "medium_large")[0],
 			/* new srcset */ 	wp_get_attachment_image_srcset( $attachment_id ),
 			/* large */			wp_get_attachment_image_src( $attachment_id, "large")[0],
@@ -39,4 +42,14 @@ if ( $attachment_ids && $product->get_image_id() ) {
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $thumbnailHtml, $attachment_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
+	
+	echo '</div></div>';
+	echo '<div class="gallery-nav">';
+
+	foreach ( $attachment_ids as $attachment_id ) {
+		$thumbnailNav = '<span class="gallery-nav-dot"></span>';
+		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $thumbnailNav, $attachment_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+	}
+
+	echo '</div>';
 }

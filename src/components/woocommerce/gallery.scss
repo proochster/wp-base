@@ -8,11 +8,11 @@
 
 		margin-left: -($block-spacing);
 		margin-right: -($block-spacing);
-		overflow-x: scroll;
-		scroll-snap-type:x mandatory;
 
-		// &-images{
-		// }
+		&-scroll{
+			overflow-x: scroll;
+			scroll-snap-type:x mandatory;
+		}
 	}
 
 	&-item{
@@ -23,17 +23,59 @@
 		}
 
 		min-width: 50px;
-
-		.active{
-			opacity: 0.3;
-		}
 	}
 
 	&-link{
-		background-color: $light;
+		// background-color: $light;
+		position: relative;
+
+	}
+
+	&-large-selector{
+		content: "";
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $primary;
+		opacity: 0;
+		transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0ms;
+		
+		&.active{
+			opacity: 0.5;
+		}
+
+		@include mobile{
+			display: none;
+		}
 	}
 
 	&-link, &-image{
 		display: block;
+	}
+
+	&-nav{
+		background: $white-bis;
+    	border-radius: 3px;
+		margin: $block-spacing;
+		padding: 10px;
+		justify-content: space-evenly;
+		display: flex;
+
+
+		@include tablet{
+			display: none;
+		}
+
+		&-dot{
+			display: block;
+			width: 10px;
+			height: 10px;
+			background-color: $primary;
+			border-radius: 5px;
+			margin: 5px;
+		}
 	}
 }

@@ -27,16 +27,14 @@ global $product;
 // $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $post_thumbnail_id = $product->get_image_id();
 $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
-	'is-flex',
+	'is-flex-tablet',
 	'gallery',
 	'gallery--' . ( $product->get_image_id() ? 'with-images' : 'without-images' ),
 	// 'gallery--columns-' . absint( $columns ),
 ) );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php // echo esc_attr( $columns ); ?>">
-	<div class="gallery-images is-flex-mobile">
-		<?php do_action( 'woocommerce_product_thumbnails' ); ?>
-	</div>
+	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 	<figure class="gallery-hero is-hidden-mobile">
 		<?php
 		if ( $product->get_image_id() ) {

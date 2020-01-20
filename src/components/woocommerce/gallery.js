@@ -1,56 +1,60 @@
 const Gallery = {
     wrapper: document.querySelector('.gallery-hero'),
     mainImage: document.querySelector('.gallery-hero img'),
-    images: document.querySelectorAll('.gallery-images img'),
+    items: document.querySelectorAll('.gallery-link'),
+    selectors: document.querySelectorAll('.gallery-large-selector'),
 
-    activeThumbnail: function(thumbnail){
-        if(!thumbnail){
-            this.images[0].classList.add('active');
+    activeThumbnail: function(s){
+        if(!s){
+            this.selectors[0].classList.add('active');
         } else {
-            this.images.forEach(function(t){
-                t.classList.remove('active');
+            this.selectors.forEach(function(selector){
+                selector.classList.remove('active');
             });
-            thumbnail.target.classList.add('active');
+            s.target.classList.add('active');
         }
     },
 
     selectImage: function(){
         self = this;
-        this.images.forEach(function(item){
+        this.items.forEach(function(item){
             item.addEventListener('click', function(e){
-                e.preventDefault();
-                // self.updateMainImage(e);
-                // self.activeThumbnail(e);
+                if(e.target.classList.contains('gallery-large-selector')){
+                    e.preventDefault();
+                    // self.updateMainImage(e);
+                    // self.activeThumbnail(e);
+                }
             });
             item.addEventListener('mouseover', function(e){
-                e.preventDefault();
-                self.updateMainImage(e);
-                self.activeThumbnail(e);
+                if(e.target.classList.contains('gallery-large-selector')){
+                    e.preventDefault();
+                    self.updateMainImage(e);
+                    self.activeThumbnail(e);
+                }
             });
         });
     },
 
     updateMainImage: function(e){
+       
         // Get values
         let imageAnchor = e.target.parentElement;
-        // let newImageSource = imageAnchor.getAttribute('href');
+        let imageElement = e.target.previousSibling;
+
         let newImageSrcSet = imageAnchor.getAttribute('data-srcset');
-        let newAlt = e.target.getAttribute('alt');
+        let newAlt = imageElement.getAttribute('alt');
         let newLargeSrc = imageAnchor.getAttribute('data-large');
 
         let newTitle = imageAnchor.getAttribute('title');
-        
+
         // Set values on the hero image
-        // this.mainImage.setAttribute('src', newImageSource);
         this.mainImage.setAttribute('srcset', newImageSrcSet);
         this.mainImage.setAttribute('alt', newAlt);
-        this.mainImage.setAttribute('title', '');
         
         // Set values on the anchor
         anchor = this.mainImage.parentElement;
         anchor.setAttribute('title', newTitle);
-        anchor.setAttribute('href', newLargeSrc);
-
+        anchor.setAttribute('href', newLargeSrc);        
     },
 
     start: function(){
