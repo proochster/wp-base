@@ -100,7 +100,7 @@ const Gallery = {
 
             if(item.isIntersecting){
                 
-                let shadowSize = 10 - (item.intersectionRatio * 10);
+                let shadowSize =  Math.round((10 - (item.intersectionRatio * 10)) * 10 ) / 10 ;
                 dot.setAttribute('style', `border-width: ${shadowSize}px`);
             } else {
                 dot.setAttribute('style', `border-width: 10px`);
@@ -114,7 +114,8 @@ const Gallery = {
         let scrollTarget = self.links[index];
 
         dot.addEventListener('click', function(){
-            scrollTarget.scrollIntoView( {behavior: "smooth", block: "end", inline: "nearest"});
+            console.log('clicked');
+            scrollTarget.scrollIntoView( {behavior: "smooth", block: "center", inline: "center"});
         });
     },
 
