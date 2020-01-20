@@ -57,7 +57,7 @@
 	}
 
 	&-nav{
-		background: $white-bis;
+		// background: $white-bis;
     	border-radius: 3px;
 		margin: $block-spacing;
 		padding: 10px;
@@ -71,11 +71,11 @@
 
 		&-dot{
 			display: block;
-			width: 10px;
-			height: 10px;
+			width: 0;
+			height: 0;
 			background-color: $primary;
-			border-radius: 5px;
-			margin: 5px;
+			border-radius: 6px;
+			padding: 6px;
 		}
 	}
 }
