@@ -100,12 +100,10 @@ const Gallery = {
 
             if(item.isIntersecting){
                 
-                let shadowSize = item.intersectionRatio * 5;
-                dot.setAttribute('style', `box-shadow: 0 0 0 ${shadowSize}px #299993`);
-                // dot.setAttribute('style', `border-width: ${shadowSize}px`);
+                let shadowSize = 10 - (item.intersectionRatio * 10);
+                dot.setAttribute('style', `border-width: ${shadowSize}px`);
             } else {
-                dot.setAttribute('style', `box-shadow: none`);
-                // dot.setAttribute('style', `border-width: 1px`);
+                dot.setAttribute('style', `border-width: 10px`);
             }
         });       
     },
@@ -115,9 +113,8 @@ const Gallery = {
         let dot = self.dots[index];
         let scrollTarget = self.links[index];
 
-        dot.addEventListener('click', function(e){
-            // console.log(e.target, scrollTarget);
-            scrollTarget.scrollIntoView(false);
+        dot.addEventListener('click', function(){
+            scrollTarget.scrollIntoView( {behavior: "smooth", block: "end", inline: "nearest"});
         });
     },
 
