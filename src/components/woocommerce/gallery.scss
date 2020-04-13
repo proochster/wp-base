@@ -4,6 +4,8 @@
 
 .gallery{
 
+	align-items: center;
+
 	@include mobile{
 
 		margin-left: -($block-spacing);
@@ -25,7 +27,7 @@
 
 		min-width: 50px;
 		overflow: hidden;
-		border-radius: 25px;
+		border-radius: 10px;
 		margin: 0 6px 6px 0;
 	}
 

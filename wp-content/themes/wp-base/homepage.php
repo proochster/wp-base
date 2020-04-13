@@ -11,29 +11,25 @@
 get_header();
 ?>
 
-<?php get_template_part( 'partials/header-image' ); ?>
-
-<?php if ( has_post_thumbnail() ) { ?>
-    <figure class="image">
-        <?php the_post_thumbnail('full'); ?>
-    </figure>
-<?php } ?>
-
-<div class="section">
-    <div class="container">
-    <?php
-    while ( have_posts() ) : the_post(); ?>
-            <h1 class="title"><?php the_title(); ?></h1>
-            <hr>
-            <div class="container">
-                <?php the_content(); ?>
-            </div>
-    <?php
-    endwhile;
-    wp_reset_query();
-    ?>
+<section class="hero is-light is-halfheight is-relative">
+    <div class="hero-body">
+        <?php if ( has_post_thumbnail() ) { ?>
+            <picture class="image">
+                <?php the_post_thumbnail('full'); ?>
+            </picture>
+        <?php } ?>
+        <div class="container">
+            <h1 class="title is-1">
+                Neeloo
+            </h1>
+            <h2 class="subtitle">
+                Naturally for fun
+            </h2>
+        </div>
     </div>
-</div>
+</section>
+
+<?php // get_template_part( 'partials/header-image' ); ?>
 
 <?php if ( class_exists( 'woocommerce' ) ) { ?>
 <div class="section has-background-light">
@@ -59,6 +55,22 @@ get_header();
     </div>
 </div>
 <?php } ?>
+
+<div class="section">
+    <div class="container">
+    <?php
+    while ( have_posts() ) : the_post(); ?>
+            <h1 class="title"><?php the_title(); ?></h1>
+            <hr>
+            <div class="container">
+                <?php the_content(); ?>
+            </div>
+    <?php
+    endwhile;
+    wp_reset_query();
+    ?>
+    </div>
+</div>
 
 <?php
 get_footer();

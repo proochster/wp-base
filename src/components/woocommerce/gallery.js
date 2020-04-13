@@ -76,7 +76,8 @@ const Gallery = {
         self = this;
 
         let options = {
-            rootMargin: '0px',
+            root: document.querySelector('.gallery-scroll'),
+            rootMargin: '0% 15%',
             threshold: this.setThresholds()
         }        
 

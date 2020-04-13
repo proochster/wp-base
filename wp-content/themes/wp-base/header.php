@@ -28,6 +28,7 @@ if($heeader_fixed && $heeader_fixed == 'true') {
 <meta property="og:site_name" content="<?php bloginfo('title'); ?>"/>
 <meta property="og:url" content="<?php bloginfo('url'); ?>"/>
 <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class($body_class); ?>>
 <?php get_template_part( 'partials/navigation' ); ?>
