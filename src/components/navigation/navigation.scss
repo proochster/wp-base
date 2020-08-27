@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    #NAVBAR
+    @link: https://bulma.io/documentation/components/navbar/
+\*------------------------------------*/
+
+.navbar-burger{
+    height: auto;
+}
+
+.navbar-menu{
+    width: 0;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0ms, width 0.5s;
+    height: 100%;
+    position: fixed;
+    display: block;
+    z-index: 0;
+    overflow-y: auto;
+        
+    &.is-active{
+        opacity: 1;
+        z-index: 1;
+        width: 100%;
+    }
+    
+    @include tablet{
+        &.is-active{
+            width: 50%;
+        }
+    }
+
+    @include desktop{
+        width: auto;
+        opacity: 1;
+        transition: none;
+        position: static;
+        z-index: 1;
+        display: flex;
+        overflow-y: visible;
+        
+        &.is-active{
+            width: auto;
+        }
+    }
+}
+
+// Push navigation bar down if admin bar is active and navbar is fixed to the top.
+// .admin-bar.has-navbar-fixed-top{
+//     .navbar{
+//         top: 46px;
+    
+//         @include tablet{
+//             top: 32px;
+//         }
+//     }
+// }
+
+
+/**
+* Extend Bulma nav classes. This is more efficient than restructuring custom menus.
+*/
+.navbar{ // Extend Bulma navitem classes only in the navbar context
+    
+    .menu-item-has-children{
+        @extend .has-dropdown;
+        @extend .is-hoverable;
+    }
+    
+    .menu-item-has-children > a{
+        @extend .navbar-link; 
+    }
+    
+    .sub-menu{
+        @extend .navbar-dropdown;
+    }
+    
+    .menu > .menu-item,
+    .menu-item > a {
+        @extend .navbar-item;
+    }
+}

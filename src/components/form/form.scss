@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    #FORM
+\*------------------------------------*/
+
+.screen-reader-response {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	width: 1px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/**
+* Extend Bulma classes
+*/
+
+.wpcf7-form-control + span {    
+    @extend .help;
+}
+
+.wpcf7-not-valid-tip,
+.wpcf7-not-valid,
+.wpcf7-validation-errors,
+.wpcf7-mail-sent-ng {    
+    @extend .is-danger;
+}
+
+.wpcf7-mail-sent-ok{
+    @extend .is-success;
+}
+
+.wpcf7-response-output {
+	@extend .notification;
+}
+
+.wpcf7-display-none{
+	display: none;
+}

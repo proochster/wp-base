@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    #COMPONENTS
+\*------------------------------------*/
+
+@import
+
+"form/form",
+"lazyload/lazyload",
+"navigation/navigation",
+"woocommerce/gallery",
+"../../src/components/woocommerce/gallery"      // Load styles from parent theme
+"widget/widget";

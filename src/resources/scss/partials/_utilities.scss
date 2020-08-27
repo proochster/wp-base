@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+
+.padding{
+
+    padding: 1em;
+
+    &-top{
+        padding-top: 1em;
+    }
+    &-bottom{
+        padding-bottom: 1em;
+    }
+}
