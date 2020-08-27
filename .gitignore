@@ -6,11 +6,14 @@ wp-content/*
 wp-includes/*
 
 !wp-content/mu-plugins/
-!wp-content/plugins/
 
 # ignore these plugins
 wp-content/plugins/hello.php
 wp-content/plugins/
+# igore WooCommerce
+wp-content/plugins/woocommerce/
+wp-content/plugins/woocommerce-admin/
+wp-content/plugins/woocommerce-gateway-stripe/
 
 # ignore specific themes
 wp-content/themes/twenty*/
@@ -18,7 +21,45 @@ wp-content/themes/twenty*/
 # ignore node dependency directories
 node_modules/
 
+# ignore config file
+wp-config.php
+
+# ignore .htaccess
+.htaccess
+
 # ignore log files and databases
 *.log
 *.sql
 *.sqlite
+
+# ignore compiled styles
+# add a path below to the style when setting up a new theme `wp-content/themes/{new-theme-name}/style.css`
+wp-content/themes/wp-base/style.css
+wp-content/themes/wp-base/assets/login.css
+
+wp-content/themes/wp-base-child/style.css
+wp-content/themes/wp-base-child/assets/login.css
+
+
+# exclude compiled Javascript files
+# add a path below to the js folder when setting up a new theme `wp-content/themes/{new-theme-name}/js/`
+wp-content/themes/wp-base/js/
+wp-content/themes/wp-base-child/js/
+
+# exclude core WP files
+wp-admin/
+wp-includes/
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+readme.html
