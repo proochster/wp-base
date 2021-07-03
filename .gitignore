@@ -45,7 +45,3 @@ wp-content/themes/wp-base-child/assets/login.css
 # add a path below to the js folder when setting up a new theme `wp-content/themes/{new-theme-name}/js/`
 wp-content/themes/wp-base/js/
 wp-content/themes/wp-base-child/js/
-
-# exclude core WP files
-wp-admin/
-wp-includes/
